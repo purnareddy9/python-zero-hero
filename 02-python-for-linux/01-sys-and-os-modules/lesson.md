@@ -7,6 +7,7 @@ You will learn how to interact with the underlying Linux operating system using 
 
 ## 🤔 Why does a DevOps engineer need this?
 DevOps automation scripts cannot be static:
+
 - They must accept dynamic target arguments: `python deploy.py --env staging --region us-east-1` (`sys.argv`).
 - They must inspect local filesystem structures: verifying that an SSL certificate file exists at `/etc/ssl/certs/app.crt` before starting Nginx (`os.path.exists()`).
 - They must navigate paths safely across Linux, macOS, and Windows without hardcoded slash bugs (`os.path.join()`).
@@ -159,6 +160,7 @@ done
   ansible.builtin.stat:
     path: "/etc/app/config/{{ item }}"
   loop:
+
     - app.conf
     - tls.crt
     - tls.key
@@ -180,6 +182,7 @@ done
    path = os.path.join(base_dir, filename) # ✅ Safe & portable
    ```
 2. **Accessing `sys.argv[1]` without checking length:**
+
    - Raises `IndexError: list index out of range` if no CLI argument was passed. Always verify `len(sys.argv)` first.
 
 ---

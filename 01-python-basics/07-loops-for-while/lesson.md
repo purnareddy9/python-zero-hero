@@ -7,6 +7,7 @@ You will learn how to automate repetitive tasks using **`for` loops** and **`whi
 
 ## 🤔 Why does a DevOps engineer need this?
 DevOps is the science of repetition:
+
 - Iterating across 50 servers to check disk usage (`for host in servers:`).
 - Polling a Kubernetes deployment or AWS RDS instance every 5 seconds until status is `"AVAILABLE"` (`while status != "AVAILABLE":`).
 - Retrying an API call up to 3 times before giving up (`for attempt in range(3):`).

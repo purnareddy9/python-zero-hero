@@ -7,6 +7,7 @@ You will learn why `print()` is unsuitable for production automation and master 
 
 ## 🤔 Why does a DevOps engineer need this?
 In production systems:
+
 - `print()` messages lack severity levels, timestamps, and line numbers, making post-incident debugging impossible.
 - Log aggregation systems (Elasticsearch, CloudWatch, Grafana Loki) parse structured formats (JSON / standard syslog).
 - Setting log level to `INFO` in production hides noisy debug traces, but changing to `DEBUG` dynamically during an outage reveals detailed HTTP payload traces without touching code.
@@ -160,8 +161,10 @@ Ansible controls log output via `ANSIBLE_LOG_PATH=/var/log/ansible.log` and the 
 
 ## ⚠️ Common mistakes
 1. **Using `print()` for errors:**
+
    - `print()` writes to `stdout` instead of `stderr` and lacks timestamps, causing log ingestors to misclassify errors.
 2. **Missing `logger.handlers` check:**
+
    - In modular scripts or webhooks, configuring loggers repeatedly will attach duplicate handlers, causing every message to print 2 or 3 times.
 
 ---

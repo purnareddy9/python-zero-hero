@@ -7,6 +7,7 @@ You will master reading, parsing, manipulating, and writing **JSON (JavaScript O
 
 ## 🤔 Why does a DevOps engineer need this?
 JSON is the lingua franca of DevOps:
+
 - Every cloud provider API (AWS, GCP, Azure) returns JSON.
 - `docker inspect <container>` and `kubectl get pods -o json` output JSON.
 - Monitoring alert payloads (PagerDuty, Slack Webhooks, Prometheus Alertmanager) are JSON.
@@ -127,6 +128,7 @@ Critical Severity: 1
 High Severity    : 1
 ----------------------------------------
 [!] BLOCKING DEPLOYMENT: Critical CVEs detected:
+
     - CVE-2026-1003 in package 'glibc'
 ========================================
 ```
@@ -168,9 +170,11 @@ echo '$mock_scan_report' | jq '.vulnerabilities[] | select(.severity=="CRITICAL"
 
 ## ⚠️ Common mistakes
 1. **Confusing `json.load()` with `json.loads()`:**
+
    - `json.load(f)` expects a **file object**.
    - `json.loads(s)` expects a **string** (the `s` stands for string).
 2. **Invalid JSON syntax causing `json.JSONDecodeError`:**
+
    - Single quotes (`{'key': 'val'}`) are invalid in JSON. JSON requires double quotes (`{"key": "val"}`).
 
 ---

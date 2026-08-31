@@ -7,6 +7,7 @@ You will learn how to build automated release versioning calculators in Python: 
 
 ## 🤔 Why does a DevOps engineer need this?
 Automated CI/CD pipelines need deterministic, collision-free release versioning:
+
 - Eliminating manual version bumping.
 - Tagging container images with clean SemVer and Git commit SHAs: `registry.io/app:v1.4.0-a1b2c3d`.
 - Automating GitHub Release creation from git history.
@@ -123,6 +124,7 @@ Current Base Tag: v1.4.2
 Commits to Audit: 3
 
 Analyzed Commits:
+
   - docs: update deployment architecture diagram
   - fix: resolve connection timeout in redis pool
   - feat: add Apple Pay checkout support
@@ -164,8 +166,10 @@ Ansible utilizes plugins or Python filters to evaluate SemVer numbers.
 
 ## ⚠️ Common mistakes
 1. **Bumping minor without resetting patch:**
+
    - `v1.2.5` bumped with a minor feature becomes `v1.3.0`, NOT `v1.3.5`.
 2. **Accepting non-numeric tags:**
+
    - Always validate with regex before performing integer math on versions.
 
 ---

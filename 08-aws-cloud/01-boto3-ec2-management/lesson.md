@@ -7,6 +7,7 @@ You will learn how to interact with Amazon Web Services (AWS) using Python's off
 
 ## 🤔 Why does a DevOps engineer need this?
 Cloud automation scripts reduce cloud bills and enforce compliance:
+
 - Automatically stopping non-production development EC2 instances every weekday at 7:00 PM (saving 60%+ on monthly dev compute costs).
 - Auditing unencrypted EBS volumes attached to instances.
 - Building custom AMI snapshotting and lifecycle rotation tools.
@@ -185,8 +186,10 @@ aws ec2 describe-instances --region us-east-1 \
 
 ## ⚠️ Common mistakes
 1. **Filtering in client code instead of AWS server-side:**
+
    - Querying 1,000 instances and filtering with `if tag == 'dev'` transfers megabytes of JSON over WAN. Always use AWS API `Filters=[...]` for server-side filtering.
 2. **Hardcoding AWS Access Keys in `boto3.client(aws_access_key_id=...)`:**
+
    - Never do this! Rely on standard AWS credential resolution (`~/.aws/credentials`, `os.environ`, or IAM EC2 Instance Roles / EKS IRSA).
 
 ---

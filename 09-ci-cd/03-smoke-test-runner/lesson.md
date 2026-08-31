@@ -7,6 +7,7 @@ You will learn how to build an automated **Post-Deployment Smoke Test Runner** i
 
 ## 🤔 Why does a DevOps engineer need this?
 Deployments cannot simply assume success because the Kubernetes rollout completed:
+
 - The new container might boot successfully but return HTTP 500 on `/api/login` due to a missing environment secret.
 - An automated smoke test suite runs immediately post-deployment against the staging or canary URL.
 - If smoke tests fail, the CI/CD pipeline immediately halts traffic routing and rolls back to the previous stable release.
@@ -198,6 +199,7 @@ curl -f -s http://localhost:8080/health || exit 1
 
 ## ⚠️ Common mistakes
 1. **Testing only `/healthz` without validating data:**
+
    - A service can return `200 OK` on `/healthz` while `/api/checkout` is completely broken due to database migration errors. Always smoke test at least 1 core business endpoint.
 
 ---

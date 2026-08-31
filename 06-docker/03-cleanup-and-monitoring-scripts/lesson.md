@@ -7,6 +7,7 @@ You will learn how to automate Docker host maintenance using Python: pruning dan
 
 ## 🤔 Why does a DevOps engineer need this?
 In high-throughput CI/CD build agents (like Jenkins or GitHub Actions self-hosted runners):
+
 - Every build creates new layers, intermediate containers, and dangling images.
 - Within weeks, the host runs out of disk space (`no space left on device`), crashing subsequent pipeline runs.
 - An automated Python maintenance script scheduled via cron reclaims tens of gigabytes of disk space and emits audit metrics.
@@ -162,6 +163,7 @@ docker system prune -f --volumes
 
 ## ⚠️ Common mistakes
 1. **Running `client.images.prune(filters={"dangling": False})` accidentally:**
+
    - Setting dangling to `False` deletes ALL unused images, forcing CI runners to re-download 2 GB base images on the next build! Always use `dangling: True`.
 
 ---

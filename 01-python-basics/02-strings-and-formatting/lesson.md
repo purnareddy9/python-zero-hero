@@ -7,6 +7,7 @@ You will master string manipulation in Python: **f-strings**, **string methods**
 
 ## 🤔 Why does a DevOps engineer need this?
 Almost everything in DevOps starts as raw, messy text:
+
 - Parsing command output from `df -h` or `kubectl get pods`.
 - Extracting IP addresses from syslog lines.
 - Cleaning trailing newlines (`\n`) and whitespace from configuration files.

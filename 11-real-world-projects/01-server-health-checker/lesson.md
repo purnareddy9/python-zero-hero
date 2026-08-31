@@ -112,6 +112,7 @@ Memory Usage  :  62.1%  [OK]
 Disk Usage    :  71.4%  [OK]
 -----------------------------------------
 Critical Services:
+
   - Nginx Web Server      : RUNNING
   - Docker Daemon         : RUNNING
   - SSH Daemon            : RUNNING

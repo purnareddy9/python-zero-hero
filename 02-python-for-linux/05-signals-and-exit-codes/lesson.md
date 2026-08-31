@@ -7,6 +7,7 @@ You will learn how to handle POSIX operating system signals (`SIGINT`, `SIGTERM`
 
 ## 🤔 Why does a DevOps engineer need this?
 When Kubernetes terminates a pod or Docker stops a container (`docker stop`), it sends a **`SIGTERM`** signal. The application has a grace period (default 30 seconds) to:
+
 - Finish active HTTP requests or database transactions.
 - Close open file handles, sockets, and temporary locks.
 - Log an orderly shutdown message.
@@ -182,8 +183,10 @@ Ansible manages service signals through the `ansible.builtin.systemd` or `commun
 
 ## ⚠️ Common mistakes
 1. **Calling `sys.exit(1)` on graceful SIGTERM:**
+
    - Exiting with `1` causes Kubernetes to report the pod as `Error` or `CrashLoopBackOff` instead of `Completed`. Use `sys.exit(0)` on expected graceful termination.
 2. **Performing blocking I/O inside signal handlers:**
+
    - Keep signal handlers fast to ensure the process exits before the container runtime triggers `SIGKILL`.
 
 ---

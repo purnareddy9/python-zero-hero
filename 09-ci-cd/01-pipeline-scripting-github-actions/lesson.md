@@ -7,6 +7,7 @@ You will learn how to embed and execute Python automation scripts inside modern 
 
 ## 🤔 Why does a DevOps engineer need this?
 Complex CI/CD pipelines require sophisticated logic that YAML workflows cannot handle cleanly:
+
 - Calculating dynamic build matrices or determining which microservices changed in a monorepo.
 - Parsing test results (JUnit XML) and generating markdown summary tables on pull requests.
 - Exporting dynamic outputs to subsequent workflow steps via `$GITHUB_OUTPUT`.
@@ -164,6 +165,7 @@ Ansible sets workflow variables using `ansible.builtin.set_fact`.
 
 ## ⚠️ Common mistakes
 1. **Using deprecated `::set-output` syntax:**
+
    - GitHub Actions deprecated `echo "::set-output name=key::val"`. Always write to `$GITHUB_OUTPUT`.
 
 ---

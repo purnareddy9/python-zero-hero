@@ -7,6 +7,7 @@ You will learn how to perform calculations in Python: arithmetic operators (`+`,
 
 ## 🤔 Why does a DevOps engineer need this?
 DevOps automation revolves around operational metrics:
+
 - Calculating percentage of free disk space from total and used blocks.
 - Converting raw bytes from `psutil` or Prometheus into human-readable MB / GB (`bytes / (1024 ** 3)`).
 - Rounding CPU averages to 2 decimal places.
@@ -163,9 +164,11 @@ echo "Usage: $PCT%"
 
 ## ⚠️ Common mistakes
 1. **Integer division in Python 2 vs Python 3:**
+
    - In Python 3, `5 / 2` is `2.5` (float division).
    - `5 // 2` is `2` (floor division).
 2. **Floating-point precision surprises:**
+
    - `0.1 + 0.2` produces `0.30000000000000004` due to IEEE 754 representation. Always use `round()` or formatted strings for display.
 
 ---

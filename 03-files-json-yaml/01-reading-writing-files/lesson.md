@@ -7,6 +7,7 @@ You will learn how to read, write, and append files safely using Python's contex
 
 ## 🤔 Why does a DevOps engineer need this?
 Automating infrastructure requires modifying and creating files constantly:
+
 - Modifying `/etc/hosts` or `/etc/nginx/nginx.conf`.
 - Creating automated configuration backups before applying changes (`nginx.conf.bak.2026-08-31`).
 - Appending audit logs to `/var/log/automation.log`.
@@ -188,8 +189,10 @@ sed -i 's/^WORKERS=.*/WORKERS=4/' demo_app.conf
 
 ## ⚠️ Common mistakes
 1. **Using `"w"` mode when you intended `"a"` (append):**
+
    - Opening with `"w"` instantly truncates (wipes) the entire file!
 2. **Missing `encoding="utf-8"`:**
+
    - Causes `UnicodeDecodeError` on Windows runners or minimal Docker images with different default system locales.
 
 ---

@@ -112,6 +112,7 @@ Host: web-prod-01
 [WARNING]  Mount: /data           | Usage:  82.0% (410.0G / 500.0G)
 -----------------------------------------
 [!] EMERGENCY ALERT: 1 partition(s) breach critical capacity (> 90.0%)!
+
     - Mount '/var/log' is at 93.0% utilization
 =========================================
 ```

@@ -7,6 +7,7 @@ You will learn how to extract granular container metadata using `container.attrs
 
 ## 🤔 Why does a DevOps engineer need this?
 Automated container governance and security compliance checks require programmatic inspection:
+
 - Auditing whether any production container is running without CPU/Memory limits (noisy neighbor risk).
 - Checking if privileged mode (`Privileged: true`) is enabled (security vulnerability).
 - Verifying container healthcheck configurations before promoting images in CI/CD.
@@ -176,6 +177,7 @@ docker inspect payment-gateway-service --format '{{.HostConfig.Memory}} {{.HostC
 
 ## ⚠️ Common mistakes
 1. **Assuming `.attrs` is refreshed automatically:**
+
    - If a container changes state after retrieval, `container.attrs` retains the old snapshot. Call `container.reload()` to refresh attributes from daemon.
 
 ---

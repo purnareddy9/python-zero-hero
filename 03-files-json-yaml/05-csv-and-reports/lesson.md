@@ -7,6 +7,7 @@ You will learn how to read, generate, and export tabular infrastructure audit re
 
 ## 🤔 Why does a DevOps engineer need this?
 Management, security auditors (SOC2/ISO27001), and finance teams require human-readable spreadsheets:
+
 - Exporting monthly AWS EC2 resource and cost audits.
 - Generating a weekly list of unpatched servers or open security group ports.
 - Ingesting legacy IP allocation tables or datacenter inventory CSV files.
@@ -151,8 +152,10 @@ Ansible uses template rendering (`template: src=audit.j2 dest=audit.csv`) to pro
 
 ## ⚠️ Common mistakes
 1. **Forgetting `newline=""` in `open()`:**
+
    - Causes an extra empty row after every single line on Windows.
 2. **Missing `writeheader()`:**
+
    - Omits the column names, making the CSV difficult to import into SQL or BI dashboards.
 
 ---

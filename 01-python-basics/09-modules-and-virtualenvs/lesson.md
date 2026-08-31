@@ -164,8 +164,10 @@ python3 -c "import sys; print(sys.prefix != sys.base_prefix)"
 
 ## ⚠️ Common mistakes
 1. **Running `sudo pip install package` on Ubuntu 22.04+:**
+
    - Breaks system Python packages managed by `apt`. Always use `venv`.
 2. **Committing `venv/` to Git:**
+
    - Never commit virtual environments. Add `venv/` and `.venv/` to `.gitignore`.
 
 ---

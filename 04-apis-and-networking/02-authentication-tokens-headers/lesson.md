@@ -7,6 +7,7 @@ You will learn how to authenticate against enterprise REST APIs using **Bearer T
 
 ## 🤔 Why does a DevOps engineer need this?
 Almost every production infrastructure endpoint requires authentication:
+
 - Authenticating to GitHub API with Personal Access Tokens (`ghp_...`) to create releases or query pull requests.
 - Interacting with Kubernetes API servers using Bearer ServiceAccount tokens.
 - Calling HashiCorp Vault APIs with `X-Vault-Token` headers.
@@ -181,8 +182,10 @@ curl -H "Authorization: Bearer $GITHUB_TOKEN" \
 
 ## ⚠️ Common mistakes
 1. **Hardcoding tokens in header dictionaries:**
+
    - Always read tokens via `os.environ.get("TOKEN_NAME")`.
 2. **Missing `Bearer ` prefix:**
+
    - Many APIs require the word `Bearer` followed by a space before the token string (`f"Bearer {token}"`).
 
 ---

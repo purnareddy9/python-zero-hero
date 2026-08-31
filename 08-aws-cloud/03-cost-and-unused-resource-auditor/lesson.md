@@ -7,6 +7,7 @@ You will learn how to build an automated AWS FinOps (Cloud Financial Operations)
 
 ## 🤔 Why does a DevOps engineer need this?
 When engineers terminate EC2 instances, attached EBS volumes are often left behind unattached:
+
 - An unattached 500 GB `gp3` or `io2` SSD volume costs $40 to $100+ per month while doing nothing.
 - AWS charges for idle Elastic IPs to prevent IPv4 hoarding.
 - An automated weekly Boto3 audit script identifies these orphaned resources and alerts the DevOps team, saving thousands of dollars in cloud waste.
@@ -179,6 +180,7 @@ Ansible focuses on resource provisioning rather than real-time cost waste aggreg
 
 ## ⚠️ Common mistakes
 1. **Deleting EBS volumes immediately without creating a final snapshot:**
+
    - Always create a snapshot (`ec2.create_snapshot()`) before purging orphan volumes in production in case critical data was stored on the disk.
 
 ---

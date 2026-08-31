@@ -7,6 +7,7 @@ You will learn how to automate Amazon Simple Storage Service (S3) using Boto3: c
 
 ## 🤔 Why does a DevOps engineer need this?
 S3 is the central storage layer in AWS DevOps architectures:
+
 - Uploading CI/CD build artifacts (`.tar.gz`, `.jar`, `.whl`) with version tags.
 - Streaming automated nightly PostgreSQL/MySQL database dumps to secure backup buckets.
 - Enforcing security policies (blocking public access and forcing AES-256 encryption on upload).
@@ -169,6 +170,7 @@ aws s3 cp app_backup.tar.gz s3://corp-production-backups-bucket/backups/ --sse A
 
 ## ⚠️ Common mistakes
 1. **Using `s3.put_object(Body=open('huge_file.zip', 'rb').read())`:**
+
    - Loading the whole file into RAM with `.read()` crashes with large 5 GB backups! Always use `s3.upload_file()`, which streams files in chunks automatically.
 
 ---

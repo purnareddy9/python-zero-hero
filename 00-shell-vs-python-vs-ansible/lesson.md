@@ -9,6 +9,7 @@ In this lesson, you will learn the core differences between **Shell (Bash)**, **
 A junior engineer tries to do everything in Bash until the script becomes an unreadable 500-line spaghetti monster. Another tries to write custom Python scripts to install Nginx across 200 servers, reinventing SSH connection pools and idempotency.
 
 A **Senior DevOps Engineer** instantly knows:
+
 - *"This is a 2-line pipeline step -> Use Shell."*
 - *"This requires parsing a nested JSON API and retrying with backoff -> Use Python."*
 - *"This is multi-node configuration and baseline security hardening -> Use Ansible."*
@@ -157,6 +158,7 @@ fi
 - name: Check free memory on managed hosts
   hosts: all
   tasks:
+
     - name: Fail if memory is critically low
       ansible.builtin.fail:
         msg: "Server {{ inventory_hostname }} memory free is below 15%!"

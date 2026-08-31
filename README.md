@@ -9,6 +9,7 @@
 This is not a general software engineering course. You will not build consumer web applications, mobile apps, or games. 
 
 Instead, this course teaches the exact Python skills that a **Senior DevOps Engineer (5–8 years experience)** uses daily to:
+
 - Automate Linux systems and servers.
 - Interact with cloud infrastructure (AWS) and container platforms (Docker & Kubernetes).
 - Parse massive log files, JSON, YAML, and CSV reports.
@@ -44,6 +45,7 @@ LEVEL 12 ──► Capstone Project               (The DevOps Automation Toolkit
 ## 📂 Lesson Structure
 
 Every lesson directory contains:
+
 - `lesson.md`: Detailed visual guide with Mermaid diagrams, zero-level explanations, Shell vs Python vs Ansible comparisons, and interview prep.
 - `example.py`: Runnable, production-ready Python example.
 - `exercise.py`: Hands-on exercise template with hints.

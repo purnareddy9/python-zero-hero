@@ -8,6 +8,7 @@ You will learn how to write modular, reusable automation code using **Functions*
 ## 🤔 Why does a DevOps engineer need this?
 Without functions, DevOps scripts become huge repetitive blocks of copy-pasted code.
 With functions:
+
 - You write `check_endpoint(url, timeout=3)` once and call it for 20 microservices.
 - You can unit test individual components in isolation with `pytest`.
 - Your code is readable, maintainable, and ready for team collaboration.

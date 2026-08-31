@@ -7,6 +7,7 @@ You will master executing Linux shell commands directly from Python using `subpr
 
 ## 🤔 Why does a DevOps engineer need this?
 DevOps automation often bridges Python logic with existing command-line utilities:
+
 - Checking disk space with `df -h`.
 - Querying service states with `systemctl is-active docker`.
 - Running CLI tools: `git rev-parse HEAD`, `docker ps`, `kubectl get nodes`.
@@ -200,6 +201,7 @@ fi
    subprocess.run(["cat", user_file], capture_output=True, text=True)
    ```
 2. **Forgetting `text=True`:**
+
    - Without `text=True`, `result.stdout` will be bytes (`b'hello\n'`), causing type errors if compared to regular strings.
 
 ---

@@ -7,6 +7,7 @@ You will learn how to read, validate, and manipulate Linux environment variables
 
 ## 🤔 Why does a DevOps engineer need this?
 The **12-Factor App methodology** dictates that configuration and secrets must be stored in the environment, not in code:
+
 - Reading `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_REGION`.
 - Reading `DATABASE_URL` and `SLACK_WEBHOOK_URL` injected by Kubernetes Secrets or HashiCorp Vault.
 - Validating that mandatory environment variables exist before executing a pipeline to prevent silent, partial deployments.
@@ -160,6 +161,7 @@ Pipeline Build ID : local-dev-001
 - name: Verify environment secret is present
   ansible.builtin.assert:
     that:
+
       - lookup('env', 'API_SECRET_KEY') != ""
     fail_msg: "API_SECRET_KEY environment variable is missing!"
 ```
@@ -174,8 +176,10 @@ Pipeline Build ID : local-dev-001
 
 ## ⚠️ Common mistakes
 1. **Hardcoding passwords or tokens in `.py` files:**
+
    - Git commit history stores hardcoded secrets forever. Always read from `os.environ`.
 2. **Printing raw secrets in error tracebacks or logs:**
+
    - Always mask tokens in output logs (`auth_header[:4] + '...'`).
 
 ---

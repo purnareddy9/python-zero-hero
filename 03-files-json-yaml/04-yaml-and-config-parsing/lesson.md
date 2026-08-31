@@ -7,6 +7,7 @@ You will learn how to read, modify, and generate **YAML (YAML Ain't Markup Langu
 
 ## 🤔 Why does a DevOps engineer need this?
 Modern cloud-native configuration is written in YAML:
+
 - **Kubernetes:** Deployments, Services, ConfigMaps, Ingresses.
 - **Docker Compose:** `docker-compose.yml` service definitions.
 - **CI/CD:** GitHub Actions workflows (`.github/workflows/*.yml`), GitLab CI (`.gitlab-ci.yml`).
@@ -59,6 +60,7 @@ metadata:
   name: payment-svc
 spec:
   ports:
+
     - port: 80
       targetPort: 8080
 """
@@ -89,9 +91,11 @@ spec:
   template:
     spec:
       containers:
+
         - name: auth-container
           image: myregistry.io/auth:v1.0.0
           ports:
+
             - containerPort: 8080
 """
 
@@ -153,9 +157,11 @@ spec:
   template:
     spec:
       containers:
+
       - name: auth-container
         image: myregistry.io/auth:v1.1.0-sha.8f2a1b
         ports:
+
         - containerPort: 8080
 
 ========================================
@@ -199,8 +205,10 @@ yq eval '.spec.template.spec.containers[0].image = "myregistry.io/auth:v1.1.0"' 
 
 ## ⚠️ Common mistakes
 1. **Using unsafe `yaml.load(f, Loader=yaml.Loader)`:**
+
    - Unsafe loader can execute arbitrary Python code embedded in malicious YAML tags (`!!python/object/apply`). Always use `yaml.safe_load()`.
 2. **Tab characters in YAML files:**
+
    - YAML forbids literal tab characters (`\t`). Always use spaces (standard 2 spaces).
 
 ---

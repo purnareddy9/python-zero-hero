@@ -77,6 +77,7 @@ $ python example.py
      K8S CLUSTER GOVERNANCE AUDITOR      
 =========================================
 Governance Audit Metrics:
+
   - Total Containers Audited   : 18
   - Containers Lacking Limits   : 4  [!] RISK (Noisy Neighbor)
   - Containers Running as Root  : 2  [!] RISK (Root breakout)

@@ -7,6 +7,7 @@ You will learn how to manage ordered collections using **Lists** (`[...]`) and *
 
 ## 🤔 Why does a DevOps engineer need this?
 DevOps revolves around sequences of infrastructure resources:
+
 - A list of Kubernetes pod names: `["payment-pod-1", "payment-pod-2"]`
 - An array of target deployment IP addresses or DNS endpoints.
 - A list of ports to scan: `[22, 80, 443, 3306, 8080]`
@@ -145,6 +146,7 @@ echo "First node: ${NODES[0]}"
   ansible.builtin.debug:
     msg: "Checking port {{ item }}"
   loop:
+
     - 22
     - 80
     - 443

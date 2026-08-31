@@ -7,6 +7,7 @@ You will learn how to manage Kubernetes **Deployments** using the `AppsV1Api` in
 
 ## 🤔 Why does a DevOps engineer need this?
 Automated scaling and progressive delivery scripts need to adjust deployments on the fly:
+
 - Scaling worker deployments from 2 to 20 replicas during midnight batch ETL workloads and scaling back down at 6:00 AM.
 - Triggering automated canary rollouts during CI/CD promotions.
 - Checking rollout completion status programmatically in pipeline gate scripts.
@@ -177,6 +178,7 @@ kubectl scale deployment/payment-api -n production --replicas=4
 
 ## ⚠️ Common mistakes
 1. **Calling `replace_namespaced_deployment` instead of `patch`:**
+
    - `replace` is a `PUT` operation requiring the entire manifest. If fields are omitted, they will be deleted. Always use `patch_namespaced_deployment` for partial updates.
 
 ---

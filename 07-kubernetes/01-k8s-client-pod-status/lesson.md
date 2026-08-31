@@ -7,6 +7,7 @@ You will learn how to connect to Kubernetes clusters using the official `kuberne
 
 ## 🤔 Why does a DevOps engineer need this?
 While `kubectl get pods` works well in a terminal, building automated cluster operators, custom controllers, or multi-cluster health dashboards requires the Python SDK:
+
 - Querying 10 different EKS/GKE clusters concurrently.
 - Generating a daily audit of unscheduled pods or pending PVCs.
 - Building custom admission webhooks and Slack operational bots.
@@ -173,6 +174,7 @@ kubectl get pods --all-namespaces -o wide
 
 ## ⚠️ Common mistakes
 1. **Calling `config.load_incluster_config()` on your laptop:**
+
    - Throws `ConfigException` because the ServiceAccount token path `/var/run/secrets/kubernetes.io/serviceaccount/token` does not exist outside a container. Always implement the fallback pattern.
 
 ---

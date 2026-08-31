@@ -7,6 +7,7 @@ You will learn how to write unit tests for scripts that call external services w
 
 ## 🤔 Why does a DevOps engineer need this?
 Testing infrastructure code poses a unique challenge:
+
 - You cannot actually call `boto3.client('ec2').terminate_instances()` during a unit test run in CI!
 - You cannot depend on live third-party APIs (Slack, GitHub) being available while tests run in an isolated offline runner.
 - **Mocking** intercepts the external call, replaces it with a simulated fake response, and verifies that your Python logic processes the response correctly.
@@ -183,6 +184,7 @@ Ansible playbooks are tested in isolated Docker containers via `molecule`.
 
 ## ⚠️ Common mistakes
 1. **Patching the wrong module path:**
+
    - Always patch where the object is *imported*, not where it is defined (`@patch("my_script.requests.get")` vs `@patch("requests.get")`).
 
 ---

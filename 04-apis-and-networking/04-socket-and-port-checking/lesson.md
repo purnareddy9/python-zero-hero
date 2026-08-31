@@ -7,6 +7,7 @@ You will learn low-level TCP network automation using Python's built-in `socket`
 
 ## 🤔 Why does a DevOps engineer need this?
 Before an application boots, automation scripts must verify that upstream services are reachable:
+
 - Checking if MySQL on port `3306` or PostgreSQL on port `5432` is accepting connections from a newly provisioned container.
 - Verifying SSH (`port 22`) or HTTPS (`port 443`) connectivity across a VPC peering connection.
 - Auditing security group configurations to ensure unauthorized ports (`8080`, `9200`, `6379`) are closed to the public internet.
@@ -176,8 +177,10 @@ timeout 2 bash -c "</dev/tcp/1.1.1.1/443" && echo "Open" || echo "Closed"
 
 ## ⚠️ Common mistakes
 1. **Using `socket.connect()` without try/except:**
+
    - Raises `ConnectionRefusedError` or `TimeoutError` and crashes. Use `socket.connect_ex()` which cleanly returns an integer error code instead.
 2. **Forgetting to set a socket timeout:**
+
    - Without `sock.settimeout()`, scanning a firewalled IP will hang for the default OS TCP timeout (often 2 minutes).
 
 ---

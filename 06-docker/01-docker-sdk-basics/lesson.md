@@ -7,6 +7,7 @@ You will learn how to interact with the local or remote Docker daemon using Pyth
 
 ## 🤔 Why does a DevOps engineer need this?
 While `docker run` or `docker ps` work in interactive terminal sessions, automating container lifecycles in CI/CD runners or test environments requires a structured SDK:
+
 - Spin up isolated ephemeral test database containers before running `pytest`.
 - Audit running containers for memory limits or unapproved image registries.
 - Automatically restart crashed worker containers.
@@ -159,8 +160,10 @@ docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"
 
 ## ⚠️ Common mistakes
 1. **Permission Denied on `/var/run/docker.sock`:**
+
    - On Linux, running without `sudo` fails if the user is not added to the `docker` group (`sudo usermod -aG docker $USER`).
 2. **Forgetting `all=True` in `.list()`:**
+
    - `client.containers.list()` only returns running containers by default. Exited containers with error exit codes will be missed unless `all=True` is passed.
 
 ---

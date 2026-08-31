@@ -7,6 +7,7 @@ You will learn how to automate scheduled maintenance tasks in Linux and Python: 
 
 ## 🤔 Why does a DevOps engineer need this?
 Automated housekeeping is essential for system stability:
+
 - Purging application logs older than 14 days from `/var/log/`.
 - Rotating database backups every night at 2:00 AM.
 - Preventing duplicate concurrent cron runs when a script takes longer to finish than its scheduling interval (Cron overlap / Race condition).
@@ -202,8 +203,10 @@ find /var/log/app -name "*.log" -type f -mtime +14 -delete
 
 ## ⚠️ Common mistakes
 1. **Accidental recursive directory deletion:**
+
    - Always verify `os.path.isfile(path)` so you never delete entire subdirectories accidentally.
 2. **Timezone mismatch bugs:**
+
    - Always use epoch timestamps (`time.time()`) rather than parsing formatted local date strings for file retention math.
 
 ---

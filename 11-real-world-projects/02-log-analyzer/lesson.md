@@ -104,6 +104,7 @@ Total Lines Processed : 6
 Overall Error Rate    : 50.0%
 
 Log Level Distribution:
+
   - ERROR    :     2 (33.3%)
   - INFO     :     2 (33.3%)
   - CRITICAL :     1 (16.7%)

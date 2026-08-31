@@ -7,6 +7,7 @@ You will learn how to build enterprise-grade Command Line Interface (CLI) utilit
 
 ## 🤔 Why does a DevOps engineer need this?
 DevOps engineers build internal tools for development and operations teams:
+
 - Deployer CLIs: `python deploy_tool.py --env prod --replicas 5 --dry-run`
 - Multi-command maintenance tools: `python ops.py health`, `python ops.py disk --clean`, `python ops.py restart --service nginx`
 - `argparse` automatically generates beautiful `--help` documentation and handles flag validation out of the box.
@@ -202,8 +203,10 @@ Ansible CLI commands use standard flags (`ansible-playbook -i hosts site.yml -e 
 
 ## ⚠️ Common mistakes
 1. **Using `sys.argv` indexing directly instead of `argparse`:**
+
    - Indexing `sys.argv` manually breaks if the user switches the order of flags or asks for `--help`.
 2. **Forgetting `action="store_true"` for boolean flags:**
+
    - Without `store_true`, `parser.add_argument("--dry-run")` expects a value (`--dry-run true`), which confuses users.
 
 ---

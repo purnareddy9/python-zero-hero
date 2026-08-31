@@ -7,6 +7,7 @@ You will learn how to build an automated Kubernetes troubleshooting detector in 
 
 ## 🤔 Why does a DevOps engineer need this?
 When a bad release or database migration breaks a microservice:
+
 - The pod continuously restarts with an escalating backoff delay (`CrashLoopBackOff`).
 - Standard health checks often miss intermittent crashes.
 - An automated Python watcher scans the cluster every 60 seconds, detects high restart counts (`restart_count > 5`), queries Kubernetes event logs, and alerts on-call engineers via Slack with the exact container exit code and root cause.
@@ -188,12 +189,14 @@ Ansible is not designed for real-time pod crash monitoring and continuous event 
 
 ## ⚠️ Common mistakes
 1. **Checking only `pod.status.phase`:**
+
    - A pod in `CrashLoopBackOff` often has `status.phase == "Running"` because the Kubernetes pod itself is still scheduled! You must inspect `container_statuses[].state.waiting`.
 
 ---
 
 ## 🧪 Practice (Exercise)
 Open `exercise.py`. Write a function `diagnose_pod_exit_code(exit_code: int) -> str` that returns a human-readable diagnosis:
+
 - `0`: `"Clean Exit"`
 - `1`: `"Application Exception / Uncaught Error"`
 - `137`: `"OOMKilled (Out of Memory - SIGKILL 9)"`

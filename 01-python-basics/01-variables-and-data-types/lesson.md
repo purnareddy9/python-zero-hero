@@ -7,6 +7,7 @@ You will learn what variables are, how Python stores data in memory, and the cor
 
 ## 🤔 Why does a DevOps engineer need this?
 In DevOps automation, everything you interact with is a data type:
+
 - An IP address (`"192.168.1.100"`) is a **String**.
 - A listening port (`8080`) or CPU count (`4`) is an **Integer**.
 - A disk usage percentage (`87.4%`) or load average (`1.25`) is a **Float**.
@@ -143,6 +144,7 @@ echo "Node: $HOSTNAME, Port: $SSH_PORT"
     ssh_port: 22
     is_draining: false
   tasks:
+
     - name: Debug variable types
       ansible.builtin.debug:
         msg: "Host {{ hostname }} on port {{ ssh_port }}"

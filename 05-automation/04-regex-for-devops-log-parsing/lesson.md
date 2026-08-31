@@ -7,6 +7,7 @@ You will learn the practical subset of **Regular Expressions (Regex)** essential
 
 ## 🤔 Why does a DevOps engineer need this?
 Log files from legacy applications and unformatted syslogs don't follow clean JSON or CSV standards:
+
 - Extracting IP addresses attacking an Nginx web server: `\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b`.
 - Parsing stack traces to isolate error classes: `r"Exception in thread .*?: (.*)"`.
 - Validating semantic version strings in CI/CD tags: `r"^v\d+\.\d+\.\d+$"`.
@@ -154,8 +155,10 @@ Ansible uses Jinja2 regex filters (`{{ log_line | regex_search('pattern') }}`).
 
 ## ⚠️ Common mistakes
 1. **Re-compiling regex inside the loop:**
+
    - Calling `re.search("pattern", line)` inside a loop over 1 million lines re-compiles the pattern 1 million times. Always call `pattern = re.compile(...)` *outside* the loop.
 2. **Greedy matching with `.*`:**
+
    - `.*` matches as much as possible, causing it to consume everything until the end of the line. Use non-greedy `.*?` or specific character classes (`[^\]]+`).
 
 ---

@@ -7,6 +7,7 @@ You will learn how to stream and analyze multi-gigabyte production log files in 
 
 ## 🤔 Why does a DevOps engineer need this?
 In production, log files from Nginx, Apache, or Kubernetes pods can reach 10 GB to 50 GB.
+
 - If you run `f.read()` or `f.readlines()`, Python attempts to load the entire 10 GB file into RAM at once, triggering the **Linux OOM (Out-Of-Memory) Killer** to instantly kill your script.
 - Iterating line-by-line (`for line in f:`) streams only 1 line into RAM at a time, allowing you to parse a 50 GB log file using less than **20 MB of RAM**!
 
@@ -153,11 +154,13 @@ Analyzing: /home/devops/production_access.log
 Total Lines Processed : 600
 ----------------------------------------
 Log Level Breakdown:
+
   - INFO   :   200 (33.33%)
   - WARN   :   100 (16.67%)
   - ERROR  :   300 (50.0%)
 ----------------------------------------
 Top Error Root Causes:
+
   - DB_CONNECTION_TIMEOUT     : 200 occurrences
   - SERVICE_UNAVAILABLE       : 100 occurrences
 ========================================
@@ -195,8 +198,10 @@ Ansible is not designed for log analysis or streaming gigabyte files.
 
 ## ⚠️ Common mistakes
 1. **Using `f.readlines()` on unknown file sizes:**
+
    - Always assume production logs can be huge. Always use `for line in f:`.
 2. **Accumulating all lines in a `list`:**
+
    - If you do `all_errors.append(line)` for 10 million lines, you re-introduce the exact memory leak you were trying to avoid! Store only aggregated counts or metrics.
 
 ---

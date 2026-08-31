@@ -7,6 +7,7 @@ You will learn how to make decisions in your scripts using `if`, `elif`, and `el
 
 ## 🤔 Why does a DevOps engineer need this?
 DevOps automation is essentially a series of operational decisions:
+
 - *If* disk usage > 90%, trigger PagerDuty alert; *elif* > 80%, send Slack warning; *else* mark healthy.
 - *If* HTTP status is 200 *and* response time < 500ms, route traffic; *else* failover to backup.
 - *If* `"ERROR"` is in log line *and not* `"known-flaky-warning"`, increment incident counter.

@@ -7,6 +7,7 @@ You will learn how to build resilient API automation scripts using **Exponential
 
 ## 🤔 Why does a DevOps engineer need this?
 Cloud networks and microservices are inherently unreliable:
+
 - AWS or Kubernetes API servers occasionally drop connections or rate-limit requests.
 - If a CI/CD pipeline fails immediately on the first transient network timeout, builds fail unnecessarily (flaky pipelines).
 - Retrying immediately in a tight loop floods the overloaded server (the **Thundering Herd Problem**).
@@ -187,8 +188,10 @@ curl --retry 3 --retry-delay 2 --retry-connrefused https://api.internal.net/heal
 
 ## ⚠️ Common mistakes
 1. **Retrying non-idempotent `POST` requests blindly:**
+
    - Retrying a failed `POST /charge-credit-card` without idempotency keys might charge the customer multiple times. Only retry safe idempotent verbs (`GET`, `PUT`, `DELETE`) unless an idempotency key is included.
 2. **Retrying on 4xx Client Errors (`400`, `401`, `404`):**
+
    - Retrying a 404 Not Found or 401 Unauthorized is pointless—it will never succeed without changing the request. Only retry 429 and 5xx.
 
 ---

@@ -7,6 +7,7 @@ You will learn how to write automated test suites for your DevOps scripts using 
 
 ## 🤔 Why does a DevOps engineer need this?
 Automation scripts control production infrastructure:
+
 - If a disk cleanup script has a bug in its age calculation, it might delete active production databases instead of 30-day-old logs!
 - Unit testing your utility functions with `pytest` guarantees that regex parsers, SemVer calculators, and capacity threshold algorithms work accurately before they ever run on a live server.
 
@@ -149,6 +150,7 @@ Ansible uses `ansible-playbook --syntax-check` and `molecule` for testing roles.
 
 ## ⚠️ Common mistakes
 1. **Naming test functions without `test_` prefix:**
+
    - Functions named `def verify_disk():` will be ignored by `pytest`. Always use `def test_*():`.
 
 ---

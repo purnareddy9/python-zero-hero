@@ -7,6 +7,7 @@ You will learn how to interact with modern HTTP/REST APIs using Python's famous 
 
 ## 🤔 Why does a DevOps engineer need this?
 Modern infrastructure is entirely API-driven:
+
 - Querying GitHub / GitLab APIs for commit status and release tags.
 - Triggering Jenkins build jobs via REST endpoints.
 - Sending incident alerts to Slack, Microsoft Teams, or PagerDuty webhooks.
@@ -194,8 +195,10 @@ fi
 
 ## ⚠️ Common mistakes
 1. **Omitting the `timeout` parameter:**
+
    - Default `requests.get()` has NO timeout! If a remote server hangs, your Python script will hang forever, blocking your CI/CD runner.
 2. **Not checking `response.status_code` before calling `response.json()`:**
+
    - If an API returns a 502 Bad Gateway HTML page, `response.json()` will throw `json.JSONDecodeError`.
 
 ---

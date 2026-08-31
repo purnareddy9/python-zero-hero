@@ -7,6 +7,7 @@ You will learn how to monitor and manage Linux system resources using Python's i
 
 ## 🤔 Why does a DevOps engineer need this?
 Monitoring agents (like Datadog, New Relic, and Prometheus exporters) and auto-remediation scripts rely on real-time OS metrics:
+
 - Identifying memory leaks in container worker processes.
 - Finding the top 5 CPU-consuming processes on a lagging node.
 - Automatically killing orphaned worker processes that hold file locks or database connections.
@@ -156,8 +157,10 @@ Ansible gathers system facts (`ansible_facts.memory_mb`, `ansible_facts.processo
 
 ## ⚠️ Common mistakes
 1. **Calling `cpu_percent()` without an interval or prior call:**
+
    - Calling `psutil.cpu_percent()` with default `interval=None` on the first line returns `0.0`. Pass `interval=0.5` or `1.0` to calculate delta.
 2. **Failing to catch `psutil.NoSuchProcess`:**
+
    - In a busy Linux environment, processes spawn and terminate constantly. Always wrap `process_iter()` lookups in a `try...except` block.
 
 ---

@@ -7,6 +7,7 @@ You will learn how to read, diagnose, and resolve the most common Python excepti
 
 ## 🤔 Why does a DevOps engineer need this?
 When an automation script crashes at 3:00 AM during an automated release or pipeline run:
+
 - A junior engineer panics at a 40-line traceback.
 - A **Senior DevOps Engineer** looks directly at the bottom line of the traceback, identifies the exception class, and knows the exact root cause immediately.
 
@@ -141,6 +142,7 @@ Ansible uses `default()` filter: `{{ config.aws_region | default('us-east-1') }}
 
 ## ⚠️ Common mistakes
 1. **Using bare `except:` without specifying the error class:**
+
    - Catches `KeyboardInterrupt` (Ctrl+C) and `SystemExit`, making it impossible to stop a stuck script! Always use `except SpecificError:` or `except Exception:`.
 
 ---
