@@ -44,8 +44,14 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
   - tables
   - attr_list
+
+extra_javascript:
+  - javascripts/progress.js
 
 nav:
   - Home: index.md

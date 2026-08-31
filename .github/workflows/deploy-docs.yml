@@ -48,6 +48,9 @@ jobs:
           for m in modules:
               if os.path.exists(m):
                   shutil.copytree(m, os.path.join('docs', m), dirs_exist_ok=True)
+
+          if os.path.exists('javascripts'):
+              shutil.copytree('javascripts', 'docs/javascripts', dirs_exist_ok=True)
           "
 
       - name: Deploy MkDocs to GitHub Pages
