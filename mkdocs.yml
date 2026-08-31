@@ -1,6 +1,8 @@
 site_name: Python for DevOps (Zero to Production)
+site_url: https://purnareddy9.github.io/python-zero-hero/
 site_description: Complete practical Python course for DevOps, Linux automation, Kubernetes, Docker, and Cloud.
 site_author: DevOps Training Program
+docs_dir: '.'
 theme:
   name: material
   palette:
