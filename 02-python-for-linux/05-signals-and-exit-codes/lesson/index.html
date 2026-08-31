@@ -3160,10 +3160,12 @@
 <p>You will learn how to handle POSIX operating system signals (<code>SIGINT</code>, <code>SIGTERM</code>) in Python using the <code>signal</code> module, execute graceful cleanup routines before termination, and emit standard Linux exit codes (<code>sys.exit()</code>) to integrate cleanly with Docker and Kubernetes pod lifecycles.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>When Kubernetes terminates a pod or Docker stops a container (<code>docker stop</code>), it sends a <strong><code>SIGTERM</code></strong> signal. The application has a grace period (default 30 seconds) to:
-- Finish active HTTP requests or database transactions.
-- Close open file handles, sockets, and temporary locks.
-- Log an orderly shutdown message.</p>
+<p>When Kubernetes terminates a pod or Docker stops a container (<code>docker stop</code>), it sends a <strong><code>SIGTERM</code></strong> signal. The application has a grace period (default 30 seconds) to:</p>
+<ul>
+<li>Finish active HTTP requests or database transactions.</li>
+<li>Close open file handles, sockets, and temporary locks.</li>
+<li>Log an orderly shutdown message.</li>
+</ul>
 <p>If your Python script ignores <code>SIGTERM</code>, Kubernetes escalates to <strong><code>SIGKILL</code> (<code>kill -9</code>)</strong>, forcefully aborting the process and potentially corrupting data.</p>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
@@ -3331,10 +3333,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Calling <code>sys.exit(1)</code> on graceful SIGTERM:</strong></li>
-<li>Exiting with <code>1</code> causes Kubernetes to report the pod as <code>Error</code> or <code>CrashLoopBackOff</code> instead of <code>Completed</code>. Use <code>sys.exit(0)</code> on expected graceful termination.</li>
-<li><strong>Performing blocking I/O inside signal handlers:</strong></li>
-<li>Keep signal handlers fast to ensure the process exits before the container runtime triggers <code>SIGKILL</code>.</li>
+<li>
+<p><strong>Calling <code>sys.exit(1)</code> on graceful SIGTERM:</strong></p>
+</li>
+<li>
+<p>Exiting with <code>1</code> causes Kubernetes to report the pod as <code>Error</code> or <code>CrashLoopBackOff</code> instead of <code>Completed</code>. Use <code>sys.exit(0)</code> on expected graceful termination.</p>
+</li>
+<li>
+<p><strong>Performing blocking I/O inside signal handlers:</strong></p>
+</li>
+<li>
+<p>Keep signal handlers fast to ensure the process exits before the container runtime triggers <code>SIGKILL</code>.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

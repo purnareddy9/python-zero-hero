@@ -3138,10 +3138,12 @@
 <p>You will learn how to build an automated Kubernetes troubleshooting detector in Python: identifying pods stuck in <strong><code>CrashLoopBackOff</code></strong>, <code>ImagePullBackOff</code>, <code>OOMKilled</code>, or <code>Error</code> states, querying pod restart counts, and extracting container termination messages from <code>status.container_statuses</code>.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>When a bad release or database migration breaks a microservice:
-- The pod continuously restarts with an escalating backoff delay (<code>CrashLoopBackOff</code>).
-- Standard health checks often miss intermittent crashes.
-- An automated Python watcher scans the cluster every 60 seconds, detects high restart counts (<code>restart_count &gt; 5</code>), queries Kubernetes event logs, and alerts on-call engineers via Slack with the exact container exit code and root cause.</p>
+<p>When a bad release or database migration breaks a microservice:</p>
+<ul>
+<li>The pod continuously restarts with an escalating backoff delay (<code>CrashLoopBackOff</code>).</li>
+<li>Standard health checks often miss intermittent crashes.</li>
+<li>An automated Python watcher scans the cluster every 60 seconds, detects high restart counts (<code>restart_count &gt; 5</code>), queries Kubernetes event logs, and alerts on-call engineers via Slack with the exact container exit code and root cause.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD
@@ -3289,17 +3291,23 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Checking only <code>pod.status.phase</code>:</strong></li>
-<li>A pod in <code>CrashLoopBackOff</code> often has <code>status.phase == "Running"</code> because the Kubernetes pod itself is still scheduled! You must inspect <code>container_statuses[].state.waiting</code>.</li>
+<li>
+<p><strong>Checking only <code>pod.status.phase</code>:</strong></p>
+</li>
+<li>
+<p>A pod in <code>CrashLoopBackOff</code> often has <code>status.phase == "Running"</code> because the Kubernetes pod itself is still scheduled! You must inspect <code>container_statuses[].state.waiting</code>.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>
-<p>Open <code>exercise.py</code>. Write a function <code>diagnose_pod_exit_code(exit_code: int) -&gt; str</code> that returns a human-readable diagnosis:
-- <code>0</code>: <code>"Clean Exit"</code>
-- <code>1</code>: <code>"Application Exception / Uncaught Error"</code>
-- <code>137</code>: <code>"OOMKilled (Out of Memory - SIGKILL 9)"</code>
-- <code>143</code>: <code>"Graceful SIGTERM (Container Stopped)"</code>
-- Any other: <code>f"Unknown Exit Code ({exit_code})"</code></p>
+<p>Open <code>exercise.py</code>. Write a function <code>diagnose_pod_exit_code(exit_code: int) -&gt; str</code> that returns a human-readable diagnosis:</p>
+<ul>
+<li><code>0</code>: <code>"Clean Exit"</code></li>
+<li><code>1</code>: <code>"Application Exception / Uncaught Error"</code></li>
+<li><code>137</code>: <code>"OOMKilled (Out of Memory - SIGKILL 9)"</code></li>
+<li><code>143</code>: <code>"Graceful SIGTERM (Container Stopped)"</code></li>
+<li>Any other: <code>f"Unknown Exit Code ({exit_code})"</code></li>
+</ul>
 <hr />
 <h2 id="hint">💡 Hint</h2>
 <p>Use a dictionary mapping or <code>if/elif</code> statements.</p>

@@ -3104,10 +3104,12 @@
 <p>You will learn how to extract granular container metadata using <code>container.attrs</code> (the Python equivalent of <code>docker inspect</code>): inspecting network IPs, CPU/memory resource limits, mounted storage volumes, restart policies, and environment variable configurations.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Automated container governance and security compliance checks require programmatic inspection:
-- Auditing whether any production container is running without CPU/Memory limits (noisy neighbor risk).
-- Checking if privileged mode (<code>Privileged: true</code>) is enabled (security vulnerability).
-- Verifying container healthcheck configurations before promoting images in CI/CD.</p>
+<p>Automated container governance and security compliance checks require programmatic inspection:</p>
+<ul>
+<li>Auditing whether any production container is running without CPU/Memory limits (noisy neighbor risk).</li>
+<li>Checking if privileged mode (<code>Privileged: true</code>) is enabled (security vulnerability).</li>
+<li>Verifying container healthcheck configurations before promoting images in CI/CD.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD
@@ -3242,8 +3244,12 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Assuming <code>.attrs</code> is refreshed automatically:</strong></li>
-<li>If a container changes state after retrieval, <code>container.attrs</code> retains the old snapshot. Call <code>container.reload()</code> to refresh attributes from daemon.</li>
+<li>
+<p><strong>Assuming <code>.attrs</code> is refreshed automatically:</strong></p>
+</li>
+<li>
+<p>If a container changes state after retrieval, <code>container.attrs</code> retains the old snapshot. Call <code>container.reload()</code> to refresh attributes from daemon.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

@@ -3138,10 +3138,12 @@
 <p>You will learn how to manage Kubernetes <strong>Deployments</strong> using the <code>AppsV1Api</code> in Python: inspecting desired vs available replicas, scaling replica counts up/down dynamically based on external queue depths or traffic, and triggering rolling updates by updating image tags programmatically.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Automated scaling and progressive delivery scripts need to adjust deployments on the fly:
-- Scaling worker deployments from 2 to 20 replicas during midnight batch ETL workloads and scaling back down at 6:00 AM.
-- Triggering automated canary rollouts during CI/CD promotions.
-- Checking rollout completion status programmatically in pipeline gate scripts.</p>
+<p>Automated scaling and progressive delivery scripts need to adjust deployments on the fly:</p>
+<ul>
+<li>Scaling worker deployments from 2 to 20 replicas during midnight batch ETL workloads and scaling back down at 6:00 AM.</li>
+<li>Triggering automated canary rollouts during CI/CD promotions.</li>
+<li>Checking rollout completion status programmatically in pipeline gate scripts.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3276,8 +3278,12 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Calling <code>replace_namespaced_deployment</code> instead of <code>patch</code>:</strong></li>
-<li><code>replace</code> is a <code>PUT</code> operation requiring the entire manifest. If fields are omitted, they will be deleted. Always use <code>patch_namespaced_deployment</code> for partial updates.</li>
+<li>
+<p><strong>Calling <code>replace_namespaced_deployment</code> instead of <code>patch</code>:</strong></p>
+</li>
+<li>
+<p><code>replace</code> is a <code>PUT</code> operation requiring the entire manifest. If fields are omitted, they will be deleted. Always use <code>patch_namespaced_deployment</code> for partial updates.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

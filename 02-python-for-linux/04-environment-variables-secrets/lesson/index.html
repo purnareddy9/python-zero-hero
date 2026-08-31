@@ -3138,10 +3138,12 @@
 <p>You will learn how to read, validate, and manipulate Linux environment variables in Python using <code>os.environ</code>. You will learn how to securely handle API keys, database credentials, CI/CD pipeline secrets (e.g. GitHub Actions, Jenkins), and avoid dangerous hardcoded secrets.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>The <strong>12-Factor App methodology</strong> dictates that configuration and secrets must be stored in the environment, not in code:
-- Reading <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code>, and <code>AWS_REGION</code>.
-- Reading <code>DATABASE_URL</code> and <code>SLACK_WEBHOOK_URL</code> injected by Kubernetes Secrets or HashiCorp Vault.
-- Validating that mandatory environment variables exist before executing a pipeline to prevent silent, partial deployments.</p>
+<p>The <strong>12-Factor App methodology</strong> dictates that configuration and secrets must be stored in the environment, not in code:</p>
+<ul>
+<li>Reading <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code>, and <code>AWS_REGION</code>.</li>
+<li>Reading <code>DATABASE_URL</code> and <code>SLACK_WEBHOOK_URL</code> injected by Kubernetes Secrets or HashiCorp Vault.</li>
+<li>Validating that mandatory environment variables exist before executing a pipeline to prevent silent, partial deployments.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3261,8 +3263,9 @@
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Verify environment secret is present</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">ansible.builtin.assert</span><span class="p">:</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">that</span><span class="p">:</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lookup('env', 'API_SECRET_KEY') != ""</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">fail_msg</span><span class="p">:</span><span class="w"> </span><span class="s">"API_SECRET_KEY</span><span class="nv"> </span><span class="s">environment</span><span class="nv"> </span><span class="s">variable</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">missing!"</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lookup('env', 'API_SECRET_KEY') != ""</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">fail_msg</span><span class="p">:</span><span class="w"> </span><span class="s">"API_SECRET_KEY</span><span class="nv"> </span><span class="s">environment</span><span class="nv"> </span><span class="s">variable</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">missing!"</span>
 </span></code></pre></div>
 <hr />
 <h2 id="which-one-should-i-use">🏆 Which one should I use?</h2>
@@ -3273,10 +3276,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Hardcoding passwords or tokens in <code>.py</code> files:</strong></li>
-<li>Git commit history stores hardcoded secrets forever. Always read from <code>os.environ</code>.</li>
-<li><strong>Printing raw secrets in error tracebacks or logs:</strong></li>
-<li>Always mask tokens in output logs (<code>auth_header[:4] + '...'</code>).</li>
+<li>
+<p><strong>Hardcoding passwords or tokens in <code>.py</code> files:</strong></p>
+</li>
+<li>
+<p>Git commit history stores hardcoded secrets forever. Always read from <code>os.environ</code>.</p>
+</li>
+<li>
+<p><strong>Printing raw secrets in error tracebacks or logs:</strong></p>
+</li>
+<li>
+<p>Always mask tokens in output logs (<code>auth_header[:4] + '...'</code>).</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

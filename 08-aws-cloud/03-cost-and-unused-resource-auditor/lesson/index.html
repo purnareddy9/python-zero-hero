@@ -3160,10 +3160,12 @@
 <p>You will learn how to build an automated AWS FinOps (Cloud Financial Operations) audit tool in Python: detecting unattached Elastic Block Store (EBS) volumes (<code>state == 'available'</code>), finding unassociated Elastic IP addresses (which incur hourly AWS charges when idle), and generating cost-savings reports.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>When engineers terminate EC2 instances, attached EBS volumes are often left behind unattached:
-- An unattached 500 GB <code>gp3</code> or <code>io2</code> SSD volume costs $40 to $100+ per month while doing nothing.
-- AWS charges for idle Elastic IPs to prevent IPv4 hoarding.
-- An automated weekly Boto3 audit script identifies these orphaned resources and alerts the DevOps team, saving thousands of dollars in cloud waste.</p>
+<p>When engineers terminate EC2 instances, attached EBS volumes are often left behind unattached:</p>
+<ul>
+<li>An unattached 500 GB <code>gp3</code> or <code>io2</code> SSD volume costs $40 to $100+ per month while doing nothing.</li>
+<li>AWS charges for idle Elastic IPs to prevent IPv4 hoarding.</li>
+<li>An automated weekly Boto3 audit script identifies these orphaned resources and alerts the DevOps team, saving thousands of dollars in cloud waste.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD
@@ -3301,8 +3303,12 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Deleting EBS volumes immediately without creating a final snapshot:</strong></li>
-<li>Always create a snapshot (<code>ec2.create_snapshot()</code>) before purging orphan volumes in production in case critical data was stored on the disk.</li>
+<li>
+<p><strong>Deleting EBS volumes immediately without creating a final snapshot:</strong></p>
+</li>
+<li>
+<p>Always create a snapshot (<code>ec2.create_snapshot()</code>) before purging orphan volumes in production in case critical data was stored on the disk.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

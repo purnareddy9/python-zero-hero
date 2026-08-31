@@ -3138,10 +3138,12 @@
 <p>You will learn how to build automated release versioning calculators in Python: parsing Git tags, calculating next <strong>Semantic Versions (SemVer)</strong> based on commit messages (<code>fix:</code> -&gt; Patch <code>v1.0.1</code>, <code>feat:</code> -&gt; Minor <code>v1.1.0</code>, <code>BREAKING CHANGE:</code> -&gt; Major <code>v2.0.0</code>), and formatting immutable Docker image release tags.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Automated CI/CD pipelines need deterministic, collision-free release versioning:
-- Eliminating manual version bumping.
-- Tagging container images with clean SemVer and Git commit SHAs: <code>registry.io/app:v1.4.0-a1b2c3d</code>.
-- Automating GitHub Release creation from git history.</p>
+<p>Automated CI/CD pipelines need deterministic, collision-free release versioning:</p>
+<ul>
+<li>Eliminating manual version bumping.</li>
+<li>Tagging container images with clean SemVer and Git commit SHAs: <code>registry.io/app:v1.4.0-a1b2c3d</code>.</li>
+<li>Automating GitHub Release creation from git history.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3235,13 +3237,14 @@
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Commits to Audit: 3
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Analyzed Commits:
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  - docs: update deployment architecture diagram
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  - fix: resolve connection timeout in redis pool
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  - feat: add Apple Pay checkout support
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>----------------------------------------
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>Detected Bump Type : MINOR
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>Calculated Next Tag: v1.5.0
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>========================================
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  - docs: update deployment architecture diagram
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  - fix: resolve connection timeout in redis pool
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  - feat: add Apple Pay checkout support
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>----------------------------------------
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>Detected Bump Type : MINOR
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>Calculated Next Tag: v1.5.0
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>========================================
 </span></code></pre></div>
 <hr />
 <h2 id="line-by-line-explanation">🔍 Line-by-line explanation</h2>
@@ -3267,10 +3270,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Bumping minor without resetting patch:</strong></li>
-<li><code>v1.2.5</code> bumped with a minor feature becomes <code>v1.3.0</code>, NOT <code>v1.3.5</code>.</li>
-<li><strong>Accepting non-numeric tags:</strong></li>
-<li>Always validate with regex before performing integer math on versions.</li>
+<li>
+<p><strong>Bumping minor without resetting patch:</strong></p>
+</li>
+<li>
+<p><code>v1.2.5</code> bumped with a minor feature becomes <code>v1.3.0</code>, NOT <code>v1.3.5</code>.</p>
+</li>
+<li>
+<p><strong>Accepting non-numeric tags:</strong></p>
+</li>
+<li>
+<p>Always validate with regex before performing integer math on versions.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

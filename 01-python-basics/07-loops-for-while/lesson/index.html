@@ -3182,11 +3182,13 @@
 <p>You will learn how to automate repetitive tasks using <strong><code>for</code> loops</strong> and <strong><code>while</code> loops</strong>. You will master <code>break</code> (exit early), <code>continue</code> (skip to next item), iterating over dictionaries with <code>.items()</code>, using <code>enumerate()</code> for indexed output, and building resilient polling retry loops with <code>time.sleep()</code>.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>DevOps is the science of repetition:
-- Iterating across 50 servers to check disk usage (<code>for host in servers:</code>).
-- Polling a Kubernetes deployment or AWS RDS instance every 5 seconds until status is <code>"AVAILABLE"</code> (<code>while status != "AVAILABLE":</code>).
-- Retrying an API call up to 3 times before giving up (<code>for attempt in range(3):</code>).
-- Skipping comments or blank lines when reading configuration files (<code>if line.startswith("#"): continue</code>).</p>
+<p>DevOps is the science of repetition:</p>
+<ul>
+<li>Iterating across 50 servers to check disk usage (<code>for host in servers:</code>).</li>
+<li>Polling a Kubernetes deployment or AWS RDS instance every 5 seconds until status is <code>"AVAILABLE"</code> (<code>while status != "AVAILABLE":</code>).</li>
+<li>Retrying an API call up to 3 times before giving up (<code>for attempt in range(3):</code>).</li>
+<li>Skipping comments or blank lines when reading configuration files (<code>if line.startswith("#"): continue</code>).</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD

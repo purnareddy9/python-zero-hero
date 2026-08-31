@@ -3194,11 +3194,13 @@
 <p>You will learn what variables are, how Python stores data in memory, and the core data types you will encounter in every DevOps script: <strong>Strings</strong>, <strong>Integers</strong>, <strong>Floats</strong>, and <strong>Booleans</strong>.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>In DevOps automation, everything you interact with is a data type:
-- An IP address (<code>"192.168.1.100"</code>) is a <strong>String</strong>.
-- A listening port (<code>8080</code>) or CPU count (<code>4</code>) is an <strong>Integer</strong>.
-- A disk usage percentage (<code>87.4%</code>) or load average (<code>1.25</code>) is a <strong>Float</strong>.
-- A server health status (<code>is_running = True</code>) or deployment success flag is a <strong>Boolean</strong>.</p>
+<p>In DevOps automation, everything you interact with is a data type:</p>
+<ul>
+<li>An IP address (<code>"192.168.1.100"</code>) is a <strong>String</strong>.</li>
+<li>A listening port (<code>8080</code>) or CPU count (<code>4</code>) is an <strong>Integer</strong>.</li>
+<li>A disk usage percentage (<code>87.4%</code>) or load average (<code>1.25</code>) is a <strong>Float</strong>.</li>
+<li>A server health status (<code>is_running = True</code>) or deployment success flag is a <strong>Boolean</strong>.</li>
+</ul>
 <p>If you mix types incorrectly (e.g. adding the string <code>"8080"</code> to an integer <code>1</code>), your deployment automation script will crash with a <code>TypeError</code>.</p>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
@@ -3330,9 +3332,10 @@
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">ssh_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">is_draining</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Debug variable types</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">ansible.builtin.debug</span><span class="p">:</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"Host</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">hostname</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">port</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">ssh_port</span><span class="nv"> </span><span class="s">}}"</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Debug variable types</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">ansible.builtin.debug</span><span class="p">:</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"Host</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">hostname</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">port</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">ssh_port</span><span class="nv"> </span><span class="s">}}"</span>
 </span></code></pre></div>
 <hr />
 <h2 id="which-one-should-i-use">🏆 Which one should I use?</h2>

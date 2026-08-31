@@ -3104,10 +3104,12 @@
 <p>You will learn how to write unit tests for scripts that call external services without actually making network calls or running real system commands, using <code>unittest.mock</code> (<code>patch</code>, <code>MagicMock</code>, <code>mock_subprocess</code>).</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Testing infrastructure code poses a unique challenge:
-- You cannot actually call <code>boto3.client('ec2').terminate_instances()</code> during a unit test run in CI!
-- You cannot depend on live third-party APIs (Slack, GitHub) being available while tests run in an isolated offline runner.
-- <strong>Mocking</strong> intercepts the external call, replaces it with a simulated fake response, and verifies that your Python logic processes the response correctly.</p>
+<p>Testing infrastructure code poses a unique challenge:</p>
+<ul>
+<li>You cannot actually call <code>boto3.client('ec2').terminate_instances()</code> during a unit test run in CI!</li>
+<li>You cannot depend on live third-party APIs (Slack, GitHub) being available while tests run in an isolated offline runner.</li>
+<li><strong>Mocking</strong> intercepts the external call, replaces it with a simulated fake response, and verifies that your Python logic processes the response correctly.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3251,8 +3253,12 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Patching the wrong module path:</strong></li>
-<li>Always patch where the object is <em>imported</em>, not where it is defined (<code>@patch("my_script.requests.get")</code> vs <code>@patch("requests.get")</code>).</li>
+<li>
+<p><strong>Patching the wrong module path:</strong></p>
+</li>
+<li>
+<p>Always patch where the object is <em>imported</em>, not where it is defined (<code>@patch("my_script.requests.get")</code> vs <code>@patch("requests.get")</code>).</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

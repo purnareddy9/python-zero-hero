@@ -3138,10 +3138,12 @@
 <p>You will learn how to interact with Amazon Web Services (AWS) using Python's official SDK, <strong>Boto3</strong>. You will learn the difference between <strong>Clients</strong> (low-level 1:1 API mappings) and <strong>Resources</strong> (high-level object-oriented), how to filter EC2 instances by tags and state (<code>running</code>, <code>stopped</code>), and how to start/stop instances programmatically.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Cloud automation scripts reduce cloud bills and enforce compliance:
-- Automatically stopping non-production development EC2 instances every weekday at 7:00 PM (saving 60%+ on monthly dev compute costs).
-- Auditing unencrypted EBS volumes attached to instances.
-- Building custom AMI snapshotting and lifecycle rotation tools.</p>
+<p>Cloud automation scripts reduce cloud bills and enforce compliance:</p>
+<ul>
+<li>Automatically stopping non-production development EC2 instances every weekday at 7:00 PM (saving 60%+ on monthly dev compute costs).</li>
+<li>Auditing unencrypted EBS volumes attached to instances.</li>
+<li>Building custom AMI snapshotting and lifecycle rotation tools.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3311,10 +3313,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Filtering in client code instead of AWS server-side:</strong></li>
-<li>Querying 1,000 instances and filtering with <code>if tag == 'dev'</code> transfers megabytes of JSON over WAN. Always use AWS API <code>Filters=[...]</code> for server-side filtering.</li>
-<li><strong>Hardcoding AWS Access Keys in <code>boto3.client(aws_access_key_id=...)</code>:</strong></li>
-<li>Never do this! Rely on standard AWS credential resolution (<code>~/.aws/credentials</code>, <code>os.environ</code>, or IAM EC2 Instance Roles / EKS IRSA).</li>
+<li>
+<p><strong>Filtering in client code instead of AWS server-side:</strong></p>
+</li>
+<li>
+<p>Querying 1,000 instances and filtering with <code>if tag == 'dev'</code> transfers megabytes of JSON over WAN. Always use AWS API <code>Filters=[...]</code> for server-side filtering.</p>
+</li>
+<li>
+<p><strong>Hardcoding AWS Access Keys in <code>boto3.client(aws_access_key_id=...)</code>:</strong></p>
+</li>
+<li>
+<p>Never do this! Rely on standard AWS credential resolution (<code>~/.aws/credentials</code>, <code>os.environ</code>, or IAM EC2 Instance Roles / EKS IRSA).</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

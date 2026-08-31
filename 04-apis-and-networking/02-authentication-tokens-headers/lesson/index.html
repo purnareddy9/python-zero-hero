@@ -3160,11 +3160,13 @@
 <p>You will learn how to authenticate against enterprise REST APIs using <strong>Bearer Tokens (OAuth / JWT)</strong>, <strong>API Keys</strong>, and <strong>HTTP Basic Auth</strong>, configure custom headers (e.g. <code>User-Agent</code>, <code>Accept</code>, <code>Content-Type</code>), and interact securely with GitHub, GitLab, and Jira APIs.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Almost every production infrastructure endpoint requires authentication:
-- Authenticating to GitHub API with Personal Access Tokens (<code>ghp_...</code>) to create releases or query pull requests.
-- Interacting with Kubernetes API servers using Bearer ServiceAccount tokens.
-- Calling HashiCorp Vault APIs with <code>X-Vault-Token</code> headers.
-- Setting custom <code>User-Agent</code> strings so corporate firewalls and rate-limiters don't block automation scripts.</p>
+<p>Almost every production infrastructure endpoint requires authentication:</p>
+<ul>
+<li>Authenticating to GitHub API with Personal Access Tokens (<code>ghp_...</code>) to create releases or query pull requests.</li>
+<li>Interacting with Kubernetes API servers using Bearer ServiceAccount tokens.</li>
+<li>Calling HashiCorp Vault APIs with <code>X-Vault-Token</code> headers.</li>
+<li>Setting custom <code>User-Agent</code> strings so corporate firewalls and rate-limiters don't block automation scripts.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3302,10 +3304,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Hardcoding tokens in header dictionaries:</strong></li>
-<li>Always read tokens via <code>os.environ.get("TOKEN_NAME")</code>.</li>
-<li><strong>Missing <code>Bearer</code> prefix:</strong></li>
-<li>Many APIs require the word <code>Bearer</code> followed by a space before the token string (<code>f"Bearer {token}"</code>).</li>
+<li>
+<p><strong>Hardcoding tokens in header dictionaries:</strong></p>
+</li>
+<li>
+<p>Always read tokens via <code>os.environ.get("TOKEN_NAME")</code>.</p>
+</li>
+<li>
+<p><strong>Missing <code>Bearer</code> prefix:</strong></p>
+</li>
+<li>
+<p>Many APIs require the word <code>Bearer</code> followed by a space before the token string (<code>f"Bearer {token}"</code>).</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

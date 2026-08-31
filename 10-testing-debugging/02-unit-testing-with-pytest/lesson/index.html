@@ -3104,9 +3104,11 @@
 <p>You will learn how to write automated test suites for your DevOps scripts using <strong><code>pytest</code></strong>: writing test functions (<code>test_*</code>), using simple <code>assert</code> statements, test parameterization (<code>@pytest.mark.parametrize</code>), and running tests in CI/CD pipeline stages.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Automation scripts control production infrastructure:
-- If a disk cleanup script has a bug in its age calculation, it might delete active production databases instead of 30-day-old logs!
-- Unit testing your utility functions with <code>pytest</code> guarantees that regex parsers, SemVer calculators, and capacity threshold algorithms work accurately before they ever run on a live server.</p>
+<p>Automation scripts control production infrastructure:</p>
+<ul>
+<li>If a disk cleanup script has a bug in its age calculation, it might delete active production databases instead of 30-day-old logs!</li>
+<li>Unit testing your utility functions with <code>pytest</code> guarantees that regex parsers, SemVer calculators, and capacity threshold algorithms work accurately before they ever run on a live server.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3216,8 +3218,12 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Naming test functions without <code>test_</code> prefix:</strong></li>
-<li>Functions named <code>def verify_disk():</code> will be ignored by <code>pytest</code>. Always use <code>def test_*():</code>.</li>
+<li>
+<p><strong>Naming test functions without <code>test_</code> prefix:</strong></p>
+</li>
+<li>
+<p>Functions named <code>def verify_disk():</code> will be ignored by <code>pytest</code>. Always use <code>def test_*():</code>.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

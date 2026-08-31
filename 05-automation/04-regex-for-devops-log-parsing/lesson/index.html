@@ -3160,10 +3160,12 @@
 <p>You will learn the practical subset of <strong>Regular Expressions (Regex)</strong> essential for DevOps engineers using Python's built-in <code>re</code> module (<code>re.search()</code>, <code>re.findall()</code>, <code>re.compile()</code>, named capture groups). You will learn how to extract IPv4 addresses, ISO timestamps, HTTP status codes, and container IDs from messy production logs.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Log files from legacy applications and unformatted syslogs don't follow clean JSON or CSV standards:
-- Extracting IP addresses attacking an Nginx web server: <code>\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b</code>.
-- Parsing stack traces to isolate error classes: <code>r"Exception in thread .*?: (.*)"</code>.
-- Validating semantic version strings in CI/CD tags: <code>r"^v\d+\.\d+\.\d+$"</code>.</p>
+<p>Log files from legacy applications and unformatted syslogs don't follow clean JSON or CSV standards:</p>
+<ul>
+<li>Extracting IP addresses attacking an Nginx web server: <code>\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b</code>.</li>
+<li>Parsing stack traces to isolate error classes: <code>r"Exception in thread .*?: (.*)"</code>.</li>
+<li>Validating semantic version strings in CI/CD tags: <code>r"^v\d+\.\d+\.\d+$"</code>.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3308,10 +3310,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Re-compiling regex inside the loop:</strong></li>
-<li>Calling <code>re.search("pattern", line)</code> inside a loop over 1 million lines re-compiles the pattern 1 million times. Always call <code>pattern = re.compile(...)</code> <em>outside</em> the loop.</li>
-<li><strong>Greedy matching with <code>.*</code>:</strong></li>
-<li><code>.*</code> matches as much as possible, causing it to consume everything until the end of the line. Use non-greedy <code>.*?</code> or specific character classes (<code>[^\]]+</code>).</li>
+<li>
+<p><strong>Re-compiling regex inside the loop:</strong></p>
+</li>
+<li>
+<p>Calling <code>re.search("pattern", line)</code> inside a loop over 1 million lines re-compiles the pattern 1 million times. Always call <code>pattern = re.compile(...)</code> <em>outside</em> the loop.</p>
+</li>
+<li>
+<p><strong>Greedy matching with <code>.*</code>:</strong></p>
+</li>
+<li>
+<p><code>.*</code> matches as much as possible, causing it to consume everything until the end of the line. Use non-greedy <code>.*?</code> or specific character classes (<code>[^\]]+</code>).</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

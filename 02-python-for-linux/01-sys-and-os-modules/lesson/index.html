@@ -3160,10 +3160,12 @@
 <p>You will learn how to interact with the underlying Linux operating system using Python's standard <code>sys</code> and <code>os</code> modules: reading command-line arguments (<code>sys.argv</code>), querying paths (<code>os.path</code>), checking file existence, listing directories, and accessing system properties.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>DevOps automation scripts cannot be static:
-- They must accept dynamic target arguments: <code>python deploy.py --env staging --region us-east-1</code> (<code>sys.argv</code>).
-- They must inspect local filesystem structures: verifying that an SSL certificate file exists at <code>/etc/ssl/certs/app.crt</code> before starting Nginx (<code>os.path.exists()</code>).
-- They must navigate paths safely across Linux, macOS, and Windows without hardcoded slash bugs (<code>os.path.join()</code>).</p>
+<p>DevOps automation scripts cannot be static:</p>
+<ul>
+<li>They must accept dynamic target arguments: <code>python deploy.py --env staging --region us-east-1</code> (<code>sys.argv</code>).</li>
+<li>They must inspect local filesystem structures: verifying that an SSL certificate file exists at <code>/etc/ssl/certs/app.crt</code> before starting Nginx (<code>os.path.exists()</code>).</li>
+<li>They must navigate paths safely across Linux, macOS, and Windows without hardcoded slash bugs (<code>os.path.join()</code>).</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD
@@ -3288,11 +3290,12 @@
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">ansible.builtin.stat</span><span class="p">:</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">"/etc/app/config/{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}"</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">loop</span><span class="p">:</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.conf</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls.crt</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls.key</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stat_results</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nt">failed_when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">not stat_results.stat.exists</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.conf</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls.crt</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls.key</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stat_results</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="nt">failed_when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">not stat_results.stat.exists</span>
 </span></code></pre></div>
 <hr />
 <h2 id="which-one-should-i-use">🏆 Which one should I use?</h2>
@@ -3306,8 +3309,12 @@
    <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># path = base_dir + "/" + filename  # ❌ Brittle on Windows / portable runners</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> <span class="c1"># ✅ Safe &amp; portable</span>
 </span></code></pre></div></li>
-<li><strong>Accessing <code>sys.argv[1]</code> without checking length:</strong></li>
-<li>Raises <code>IndexError: list index out of range</code> if no CLI argument was passed. Always verify <code>len(sys.argv)</code> first.</li>
+<li>
+<p><strong>Accessing <code>sys.argv[1]</code> without checking length:</strong></p>
+</li>
+<li>
+<p>Raises <code>IndexError: list index out of range</code> if no CLI argument was passed. Always verify <code>len(sys.argv)</code> first.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

@@ -3138,11 +3138,13 @@
 <p>You will learn how to monitor and manage Linux system resources using Python's industry-standard <code>psutil</code> library: querying CPU percentage, memory utilization, disk partitions, network statistics, inspecting running processes (PIDs), and safely terminating runaway processes.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Monitoring agents (like Datadog, New Relic, and Prometheus exporters) and auto-remediation scripts rely on real-time OS metrics:
-- Identifying memory leaks in container worker processes.
-- Finding the top 5 CPU-consuming processes on a lagging node.
-- Automatically killing orphaned worker processes that hold file locks or database connections.
-- Cross-platform metric collection (runs identically on Ubuntu, Amazon Linux, and macOS).</p>
+<p>Monitoring agents (like Datadog, New Relic, and Prometheus exporters) and auto-remediation scripts rely on real-time OS metrics:</p>
+<ul>
+<li>Identifying memory leaks in container worker processes.</li>
+<li>Finding the top 5 CPU-consuming processes on a lagging node.</li>
+<li>Automatically killing orphaned worker processes that hold file locks or database connections.</li>
+<li>Cross-platform metric collection (runs identically on Ubuntu, Amazon Linux, and macOS).</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD
@@ -3286,10 +3288,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Calling <code>cpu_percent()</code> without an interval or prior call:</strong></li>
-<li>Calling <code>psutil.cpu_percent()</code> with default <code>interval=None</code> on the first line returns <code>0.0</code>. Pass <code>interval=0.5</code> or <code>1.0</code> to calculate delta.</li>
-<li><strong>Failing to catch <code>psutil.NoSuchProcess</code>:</strong></li>
-<li>In a busy Linux environment, processes spawn and terminate constantly. Always wrap <code>process_iter()</code> lookups in a <code>try...except</code> block.</li>
+<li>
+<p><strong>Calling <code>cpu_percent()</code> without an interval or prior call:</strong></p>
+</li>
+<li>
+<p>Calling <code>psutil.cpu_percent()</code> with default <code>interval=None</code> on the first line returns <code>0.0</code>. Pass <code>interval=0.5</code> or <code>1.0</code> to calculate delta.</p>
+</li>
+<li>
+<p><strong>Failing to catch <code>psutil.NoSuchProcess</code>:</strong></p>
+</li>
+<li>
+<p>In a busy Linux environment, processes spawn and terminate constantly. Always wrap <code>process_iter()</code> lookups in a <code>try...except</code> block.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

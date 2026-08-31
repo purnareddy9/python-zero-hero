@@ -3160,11 +3160,13 @@
 <p>You will learn how to read, write, and append files safely using Python's context manager (<code>with open()</code>), handle file encodings (<code>utf-8</code>), create timestamped configuration backups (<code>shutil</code>), and prevent resource leaks.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Automating infrastructure requires modifying and creating files constantly:
-- Modifying <code>/etc/hosts</code> or <code>/etc/nginx/nginx.conf</code>.
-- Creating automated configuration backups before applying changes (<code>nginx.conf.bak.2026-08-31</code>).
-- Appending audit logs to <code>/var/log/automation.log</code>.
-- Ensuring that open file descriptors are closed even if an unexpected exception occurs.</p>
+<p>Automating infrastructure requires modifying and creating files constantly:</p>
+<ul>
+<li>Modifying <code>/etc/hosts</code> or <code>/etc/nginx/nginx.conf</code>.</li>
+<li>Creating automated configuration backups before applying changes (<code>nginx.conf.bak.2026-08-31</code>).</li>
+<li>Appending audit logs to <code>/var/log/automation.log</code>.</li>
+<li>Ensuring that open file descriptors are closed even if an unexpected exception occurs.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD
@@ -3308,10 +3310,18 @@ Always use <code>with open(...)</code>:</p>
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Using <code>"w"</code> mode when you intended <code>"a"</code> (append):</strong></li>
-<li>Opening with <code>"w"</code> instantly truncates (wipes) the entire file!</li>
-<li><strong>Missing <code>encoding="utf-8"</code>:</strong></li>
-<li>Causes <code>UnicodeDecodeError</code> on Windows runners or minimal Docker images with different default system locales.</li>
+<li>
+<p><strong>Using <code>"w"</code> mode when you intended <code>"a"</code> (append):</strong></p>
+</li>
+<li>
+<p>Opening with <code>"w"</code> instantly truncates (wipes) the entire file!</p>
+</li>
+<li>
+<p><strong>Missing <code>encoding="utf-8"</code>:</strong></p>
+</li>
+<li>
+<p>Causes <code>UnicodeDecodeError</code> on Windows runners or minimal Docker images with different default system locales.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

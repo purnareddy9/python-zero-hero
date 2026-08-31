@@ -3138,10 +3138,12 @@
 <p>You will learn how to make decisions in your scripts using <code>if</code>, <code>elif</code>, and <code>else</code> blocks, boolean comparison operators (<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>), and logical operators (<code>and</code>, <code>or</code>, <code>not</code>, <code>in</code>).</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>DevOps automation is essentially a series of operational decisions:
-- <em>If</em> disk usage &gt; 90%, trigger PagerDuty alert; <em>elif</em> &gt; 80%, send Slack warning; <em>else</em> mark healthy.
-- <em>If</em> HTTP status is 200 <em>and</em> response time &lt; 500ms, route traffic; <em>else</em> failover to backup.
-- <em>If</em> <code>"ERROR"</code> is in log line <em>and not</em> <code>"known-flaky-warning"</code>, increment incident counter.</p>
+<p>DevOps automation is essentially a series of operational decisions:</p>
+<ul>
+<li><em>If</em> disk usage &gt; 90%, trigger PagerDuty alert; <em>elif</em> &gt; 80%, send Slack warning; <em>else</em> mark healthy.</li>
+<li><em>If</em> HTTP status is 200 <em>and</em> response time &lt; 500ms, route traffic; <em>else</em> failover to backup.</li>
+<li><em>If</em> <code>"ERROR"</code> is in log line <em>and not</em> <code>"known-flaky-warning"</code>, increment incident counter.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD

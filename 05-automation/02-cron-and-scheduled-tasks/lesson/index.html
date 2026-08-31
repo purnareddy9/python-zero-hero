@@ -3138,10 +3138,12 @@
 <p>You will learn how to automate scheduled maintenance tasks in Linux and Python: understanding Linux crontabs (<code>/etc/cron.d/</code>), designing idempotent background cleanup jobs, handling concurrent execution using file locks (<code>fcntl</code>), and scheduling periodic health checks.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Automated housekeeping is essential for system stability:
-- Purging application logs older than 14 days from <code>/var/log/</code>.
-- Rotating database backups every night at 2:00 AM.
-- Preventing duplicate concurrent cron runs when a script takes longer to finish than its scheduling interval (Cron overlap / Race condition).</p>
+<p>Automated housekeeping is essential for system stability:</p>
+<ul>
+<li>Purging application logs older than 14 days from <code>/var/log/</code>.</li>
+<li>Rotating database backups every night at 2:00 AM.</li>
+<li>Preventing duplicate concurrent cron runs when a script takes longer to finish than its scheduling interval (Cron overlap / Race condition).</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD
@@ -3302,10 +3304,18 @@ Python's standard file-locking pattern avoids this:</p>
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Accidental recursive directory deletion:</strong></li>
-<li>Always verify <code>os.path.isfile(path)</code> so you never delete entire subdirectories accidentally.</li>
-<li><strong>Timezone mismatch bugs:</strong></li>
-<li>Always use epoch timestamps (<code>time.time()</code>) rather than parsing formatted local date strings for file retention math.</li>
+<li>
+<p><strong>Accidental recursive directory deletion:</strong></p>
+</li>
+<li>
+<p>Always verify <code>os.path.isfile(path)</code> so you never delete entire subdirectories accidentally.</p>
+</li>
+<li>
+<p><strong>Timezone mismatch bugs:</strong></p>
+</li>
+<li>
+<p>Always use epoch timestamps (<code>time.time()</code>) rather than parsing formatted local date strings for file retention math.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

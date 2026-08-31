@@ -3138,10 +3138,12 @@
 <p>You will learn how to build enterprise-grade Command Line Interface (CLI) utilities using Python's standard <code>argparse</code> module: adding positional arguments, optional flags (<code>--env</code>, <code>--dry-run</code>, <code>--verbose</code>), subcommands (like <code>docker run</code> or <code>git commit</code>), help text generation (<code>--help</code>), and type validation.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>DevOps engineers build internal tools for development and operations teams:
-- Deployer CLIs: <code>python deploy_tool.py --env prod --replicas 5 --dry-run</code>
-- Multi-command maintenance tools: <code>python ops.py health</code>, <code>python ops.py disk --clean</code>, <code>python ops.py restart --service nginx</code>
-- <code>argparse</code> automatically generates beautiful <code>--help</code> documentation and handles flag validation out of the box.</p>
+<p>DevOps engineers build internal tools for development and operations teams:</p>
+<ul>
+<li>Deployer CLIs: <code>python deploy_tool.py --env prod --replicas 5 --dry-run</code></li>
+<li>Multi-command maintenance tools: <code>python ops.py health</code>, <code>python ops.py disk --clean</code>, <code>python ops.py restart --service nginx</code></li>
+<li><code>argparse</code> automatically generates beautiful <code>--help</code> documentation and handles flag validation out of the box.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3303,10 +3305,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Using <code>sys.argv</code> indexing directly instead of <code>argparse</code>:</strong></li>
-<li>Indexing <code>sys.argv</code> manually breaks if the user switches the order of flags or asks for <code>--help</code>.</li>
-<li><strong>Forgetting <code>action="store_true"</code> for boolean flags:</strong></li>
-<li>Without <code>store_true</code>, <code>parser.add_argument("--dry-run")</code> expects a value (<code>--dry-run true</code>), which confuses users.</li>
+<li>
+<p><strong>Using <code>sys.argv</code> indexing directly instead of <code>argparse</code>:</strong></p>
+</li>
+<li>
+<p>Indexing <code>sys.argv</code> manually breaks if the user switches the order of flags or asks for <code>--help</code>.</p>
+</li>
+<li>
+<p><strong>Forgetting <code>action="store_true"</code> for boolean flags:</strong></p>
+</li>
+<li>
+<p>Without <code>store_true</code>, <code>parser.add_argument("--dry-run")</code> expects a value (<code>--dry-run true</code>), which confuses users.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

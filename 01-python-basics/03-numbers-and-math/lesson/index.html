@@ -3138,11 +3138,13 @@
 <p>You will learn how to perform calculations in Python: arithmetic operators (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>, <code>**</code>), floating-point rounding (<code>round()</code>), calculating disk/memory percentages, converting bytes to gigabytes, and threshold math.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>DevOps automation revolves around operational metrics:
-- Calculating percentage of free disk space from total and used blocks.
-- Converting raw bytes from <code>psutil</code> or Prometheus into human-readable MB / GB (<code>bytes / (1024 ** 3)</code>).
-- Rounding CPU averages to 2 decimal places.
-- Calculating autoscaling replica requirements: <code>math.ceil(current_traffic / target_capacity_per_pod)</code>.</p>
+<p>DevOps automation revolves around operational metrics:</p>
+<ul>
+<li>Calculating percentage of free disk space from total and used blocks.</li>
+<li>Converting raw bytes from <code>psutil</code> or Prometheus into human-readable MB / GB (<code>bytes / (1024 ** 3)</code>).</li>
+<li>Rounding CPU averages to 2 decimal places.</li>
+<li>Calculating autoscaling replica requirements: <code>math.ceil(current_traffic / target_capacity_per_pod)</code>.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3300,11 +3302,19 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Integer division in Python 2 vs Python 3:</strong></li>
-<li>In Python 3, <code>5 / 2</code> is <code>2.5</code> (float division).</li>
+<li>
+<p><strong>Integer division in Python 2 vs Python 3:</strong></p>
+</li>
+<li>
+<p>In Python 3, <code>5 / 2</code> is <code>2.5</code> (float division).</p>
+</li>
 <li><code>5 // 2</code> is <code>2</code> (floor division).</li>
-<li><strong>Floating-point precision surprises:</strong></li>
-<li><code>0.1 + 0.2</code> produces <code>0.30000000000000004</code> due to IEEE 754 representation. Always use <code>round()</code> or formatted strings for display.</li>
+<li>
+<p><strong>Floating-point precision surprises:</strong></p>
+</li>
+<li>
+<p><code>0.1 + 0.2</code> produces <code>0.30000000000000004</code> due to IEEE 754 representation. Always use <code>round()</code> or formatted strings for display.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

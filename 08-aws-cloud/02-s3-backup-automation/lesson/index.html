@@ -3138,10 +3138,12 @@
 <p>You will learn how to automate Amazon Simple Storage Service (S3) using Boto3: creating buckets, uploading build artifacts (<code>upload_file</code>), downloading configuration bundles, setting server-side encryption (SSE-S3 / SSE-KMS), and configuring object lifecycle policies.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>S3 is the central storage layer in AWS DevOps architectures:
-- Uploading CI/CD build artifacts (<code>.tar.gz</code>, <code>.jar</code>, <code>.whl</code>) with version tags.
-- Streaming automated nightly PostgreSQL/MySQL database dumps to secure backup buckets.
-- Enforcing security policies (blocking public access and forcing AES-256 encryption on upload).</p>
+<p>S3 is the central storage layer in AWS DevOps architectures:</p>
+<ul>
+<li>Uploading CI/CD build artifacts (<code>.tar.gz</code>, <code>.jar</code>, <code>.whl</code>) with version tags.</li>
+<li>Streaming automated nightly PostgreSQL/MySQL database dumps to secure backup buckets.</li>
+<li>Enforcing security policies (blocking public access and forcing AES-256 encryption on upload).</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3269,8 +3271,12 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Using <code>s3.put_object(Body=open('huge_file.zip', 'rb').read())</code>:</strong></li>
-<li>Loading the whole file into RAM with <code>.read()</code> crashes with large 5 GB backups! Always use <code>s3.upload_file()</code>, which streams files in chunks automatically.</li>
+<li>
+<p><strong>Using <code>s3.put_object(Body=open('huge_file.zip', 'rb').read())</code>:</strong></p>
+</li>
+<li>
+<p>Loading the whole file into RAM with <code>.read()</code> crashes with large 5 GB backups! Always use <code>s3.upload_file()</code>, which streams files in chunks automatically.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

@@ -3138,10 +3138,12 @@
 <p>You will learn how to interact with the local or remote Docker daemon using Python's official <code>docker</code> SDK (<code>docker-py</code>). You will learn how to initialize <code>docker.from_env()</code>, list running containers, start/stop containers, and inspect health status programmatically.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>While <code>docker run</code> or <code>docker ps</code> work in interactive terminal sessions, automating container lifecycles in CI/CD runners or test environments requires a structured SDK:
-- Spin up isolated ephemeral test database containers before running <code>pytest</code>.
-- Audit running containers for memory limits or unapproved image registries.
-- Automatically restart crashed worker containers.</p>
+<p>While <code>docker run</code> or <code>docker ps</code> work in interactive terminal sessions, automating container lifecycles in CI/CD runners or test environments requires a structured SDK:</p>
+<ul>
+<li>Spin up isolated ephemeral test database containers before running <code>pytest</code>.</li>
+<li>Audit running containers for memory limits or unapproved image registries.</li>
+<li>Automatically restart crashed worker containers.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3259,10 +3261,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Permission Denied on <code>/var/run/docker.sock</code>:</strong></li>
-<li>On Linux, running without <code>sudo</code> fails if the user is not added to the <code>docker</code> group (<code>sudo usermod -aG docker $USER</code>).</li>
-<li><strong>Forgetting <code>all=True</code> in <code>.list()</code>:</strong></li>
-<li><code>client.containers.list()</code> only returns running containers by default. Exited containers with error exit codes will be missed unless <code>all=True</code> is passed.</li>
+<li>
+<p><strong>Permission Denied on <code>/var/run/docker.sock</code>:</strong></p>
+</li>
+<li>
+<p>On Linux, running without <code>sudo</code> fails if the user is not added to the <code>docker</code> group (<code>sudo usermod -aG docker $USER</code>).</p>
+</li>
+<li>
+<p><strong>Forgetting <code>all=True</code> in <code>.list()</code>:</strong></p>
+</li>
+<li>
+<p><code>client.containers.list()</code> only returns running containers by default. Exited containers with error exit codes will be missed unless <code>all=True</code> is passed.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

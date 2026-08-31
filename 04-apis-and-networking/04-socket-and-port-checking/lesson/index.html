@@ -3104,10 +3104,12 @@
 <p>You will learn low-level TCP network automation using Python's built-in <code>socket</code> module (<code>socket.socket()</code>, <code>connect_ex()</code>, timeouts). You will learn how to build high-speed port scanners, verify database reachability without installing heavy database client drivers, and audit security firewall rules.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Before an application boots, automation scripts must verify that upstream services are reachable:
-- Checking if MySQL on port <code>3306</code> or PostgreSQL on port <code>5432</code> is accepting connections from a newly provisioned container.
-- Verifying SSH (<code>port 22</code>) or HTTPS (<code>port 443</code>) connectivity across a VPC peering connection.
-- Auditing security group configurations to ensure unauthorized ports (<code>8080</code>, <code>9200</code>, <code>6379</code>) are closed to the public internet.</p>
+<p>Before an application boots, automation scripts must verify that upstream services are reachable:</p>
+<ul>
+<li>Checking if MySQL on port <code>3306</code> or PostgreSQL on port <code>5432</code> is accepting connections from a newly provisioned container.</li>
+<li>Verifying SSH (<code>port 22</code>) or HTTPS (<code>port 443</code>) connectivity across a VPC peering connection.</li>
+<li>Auditing security group configurations to ensure unauthorized ports (<code>8080</code>, <code>9200</code>, <code>6379</code>) are closed to the public internet.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3242,10 +3244,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Using <code>socket.connect()</code> without try/except:</strong></li>
-<li>Raises <code>ConnectionRefusedError</code> or <code>TimeoutError</code> and crashes. Use <code>socket.connect_ex()</code> which cleanly returns an integer error code instead.</li>
-<li><strong>Forgetting to set a socket timeout:</strong></li>
-<li>Without <code>sock.settimeout()</code>, scanning a firewalled IP will hang for the default OS TCP timeout (often 2 minutes).</li>
+<li>
+<p><strong>Using <code>socket.connect()</code> without try/except:</strong></p>
+</li>
+<li>
+<p>Raises <code>ConnectionRefusedError</code> or <code>TimeoutError</code> and crashes. Use <code>socket.connect_ex()</code> which cleanly returns an integer error code instead.</p>
+</li>
+<li>
+<p><strong>Forgetting to set a socket timeout:</strong></p>
+</li>
+<li>
+<p>Without <code>sock.settimeout()</code>, scanning a firewalled IP will hang for the default OS TCP timeout (often 2 minutes).</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

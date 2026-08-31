@@ -3138,10 +3138,12 @@
 <p>You will learn how to embed and execute Python automation scripts inside modern CI/CD pipelines (GitHub Actions, GitLab CI, Jenkins): reading pipeline environment variables (<code>GITHUB_SHA</code>, <code>CI_COMMIT_REF_NAME</code>), setting workflow output parameters (<code>GITHUB_OUTPUT</code>), creating step summaries, and managing exit codes for automated pipeline gating.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Complex CI/CD pipelines require sophisticated logic that YAML workflows cannot handle cleanly:
-- Calculating dynamic build matrices or determining which microservices changed in a monorepo.
-- Parsing test results (JUnit XML) and generating markdown summary tables on pull requests.
-- Exporting dynamic outputs to subsequent workflow steps via <code>$GITHUB_OUTPUT</code>.</p>
+<p>Complex CI/CD pipelines require sophisticated logic that YAML workflows cannot handle cleanly:</p>
+<ul>
+<li>Calculating dynamic build matrices or determining which microservices changed in a monorepo.</li>
+<li>Parsing test results (JUnit XML) and generating markdown summary tables on pull requests.</li>
+<li>Exporting dynamic outputs to subsequent workflow steps via <code>$GITHUB_OUTPUT</code>.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD
@@ -3264,8 +3266,12 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Using deprecated <code>::set-output</code> syntax:</strong></li>
-<li>GitHub Actions deprecated <code>echo "::set-output name=key::val"</code>. Always write to <code>$GITHUB_OUTPUT</code>.</li>
+<li>
+<p><strong>Using deprecated <code>::set-output</code> syntax:</strong></p>
+</li>
+<li>
+<p>GitHub Actions deprecated <code>echo "::set-output name=key::val"</code>. Always write to <code>$GITHUB_OUTPUT</code>.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

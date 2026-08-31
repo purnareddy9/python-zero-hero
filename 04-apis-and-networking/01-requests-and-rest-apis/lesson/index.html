@@ -3138,11 +3138,13 @@
 <p>You will learn how to interact with modern HTTP/REST APIs using Python's famous <code>requests</code> library. You will master HTTP verbs (<code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>), inspect status codes (<code>200</code>, <code>201</code>, <code>404</code>, <code>500</code>), send query parameters, and parse JSON responses.</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Modern infrastructure is entirely API-driven:
-- Querying GitHub / GitLab APIs for commit status and release tags.
-- Triggering Jenkins build jobs via REST endpoints.
-- Sending incident alerts to Slack, Microsoft Teams, or PagerDuty webhooks.
-- Probing microservice <code>/healthz</code> endpoints in canary deployment verifications.</p>
+<p>Modern infrastructure is entirely API-driven:</p>
+<ul>
+<li>Querying GitHub / GitLab APIs for commit status and release tags.</li>
+<li>Triggering Jenkins build jobs via REST endpoints.</li>
+<li>Sending incident alerts to Slack, Microsoft Teams, or PagerDuty webhooks.</li>
+<li>Probing microservice <code>/healthz</code> endpoints in canary deployment verifications.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart LR
@@ -3320,10 +3322,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Omitting the <code>timeout</code> parameter:</strong></li>
-<li>Default <code>requests.get()</code> has NO timeout! If a remote server hangs, your Python script will hang forever, blocking your CI/CD runner.</li>
-<li><strong>Not checking <code>response.status_code</code> before calling <code>response.json()</code>:</strong></li>
-<li>If an API returns a 502 Bad Gateway HTML page, <code>response.json()</code> will throw <code>json.JSONDecodeError</code>.</li>
+<li>
+<p><strong>Omitting the <code>timeout</code> parameter:</strong></p>
+</li>
+<li>
+<p>Default <code>requests.get()</code> has NO timeout! If a remote server hangs, your Python script will hang forever, blocking your CI/CD runner.</p>
+</li>
+<li>
+<p><strong>Not checking <code>response.status_code</code> before calling <code>response.json()</code>:</strong></p>
+</li>
+<li>
+<p>If an API returns a 502 Bad Gateway HTML page, <code>response.json()</code> will throw <code>json.JSONDecodeError</code>.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

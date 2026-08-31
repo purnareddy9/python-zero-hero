@@ -3138,10 +3138,12 @@
 <p>You will learn how to connect to Kubernetes clusters using the official <code>kubernetes</code> Python SDK: authenticating with <code>kubeconfig</code> (local) vs <code>incluster_config</code> (inside a pod), listing pods and nodes across namespaces, and inspecting pod phase states (<code>Running</code>, <code>Pending</code>, <code>Failed</code>).</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>While <code>kubectl get pods</code> works well in a terminal, building automated cluster operators, custom controllers, or multi-cluster health dashboards requires the Python SDK:
-- Querying 10 different EKS/GKE clusters concurrently.
-- Generating a daily audit of unscheduled pods or pending PVCs.
-- Building custom admission webhooks and Slack operational bots.</p>
+<p>While <code>kubectl get pods</code> works well in a terminal, building automated cluster operators, custom controllers, or multi-cluster health dashboards requires the Python SDK:</p>
+<ul>
+<li>Querying 10 different EKS/GKE clusters concurrently.</li>
+<li>Generating a daily audit of unscheduled pods or pending PVCs.</li>
+<li>Building custom admission webhooks and Slack operational bots.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD
@@ -3273,8 +3275,12 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Calling <code>config.load_incluster_config()</code> on your laptop:</strong></li>
-<li>Throws <code>ConfigException</code> because the ServiceAccount token path <code>/var/run/secrets/kubernetes.io/serviceaccount/token</code> does not exist outside a container. Always implement the fallback pattern.</li>
+<li>
+<p><strong>Calling <code>config.load_incluster_config()</code> on your laptop:</strong></p>
+</li>
+<li>
+<p>Throws <code>ConfigException</code> because the ServiceAccount token path <code>/var/run/secrets/kubernetes.io/serviceaccount/token</code> does not exist outside a container. Always implement the fallback pattern.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>

@@ -3138,11 +3138,13 @@
 <p>You will learn how to build resilient API automation scripts using <strong>Exponential Backoff</strong>, <strong>Jitter</strong>, and <code>urllib3.util.Retry</code> with <code>requests.Session()</code>. You will learn how to gracefully survive transient network hiccups, rate-limits (<code>429</code>), and server overload errors (<code>502</code>, <code>503</code>, <code>504</code>).</p>
 <hr />
 <h2 id="why-does-a-devops-engineer-need-this">🤔 Why does a DevOps engineer need this?</h2>
-<p>Cloud networks and microservices are inherently unreliable:
-- AWS or Kubernetes API servers occasionally drop connections or rate-limit requests.
-- If a CI/CD pipeline fails immediately on the first transient network timeout, builds fail unnecessarily (flaky pipelines).
-- Retrying immediately in a tight loop floods the overloaded server (the <strong>Thundering Herd Problem</strong>).
-- Implementing <strong>Exponential Backoff</strong> (waiting 1s, 2s, 4s, 8s...) gives the backend server time to recover.</p>
+<p>Cloud networks and microservices are inherently unreliable:</p>
+<ul>
+<li>AWS or Kubernetes API servers occasionally drop connections or rate-limit requests.</li>
+<li>If a CI/CD pipeline fails immediately on the first transient network timeout, builds fail unnecessarily (flaky pipelines).</li>
+<li>Retrying immediately in a tight loop floods the overloaded server (the <strong>Thundering Herd Problem</strong>).</li>
+<li>Implementing <strong>Exponential Backoff</strong> (waiting 1s, 2s, 4s, 8s...) gives the backend server time to recover.</li>
+</ul>
 <hr />
 <h2 id="mental-model">🧠 Mental model</h2>
 <pre class="mermaid"><code>flowchart TD
@@ -3286,10 +3288,18 @@
 <hr />
 <h2 id="common-mistakes">⚠️ Common mistakes</h2>
 <ol>
-<li><strong>Retrying non-idempotent <code>POST</code> requests blindly:</strong></li>
-<li>Retrying a failed <code>POST /charge-credit-card</code> without idempotency keys might charge the customer multiple times. Only retry safe idempotent verbs (<code>GET</code>, <code>PUT</code>, <code>DELETE</code>) unless an idempotency key is included.</li>
-<li><strong>Retrying on 4xx Client Errors (<code>400</code>, <code>401</code>, <code>404</code>):</strong></li>
-<li>Retrying a 404 Not Found or 401 Unauthorized is pointless—it will never succeed without changing the request. Only retry 429 and 5xx.</li>
+<li>
+<p><strong>Retrying non-idempotent <code>POST</code> requests blindly:</strong></p>
+</li>
+<li>
+<p>Retrying a failed <code>POST /charge-credit-card</code> without idempotency keys might charge the customer multiple times. Only retry safe idempotent verbs (<code>GET</code>, <code>PUT</code>, <code>DELETE</code>) unless an idempotency key is included.</p>
+</li>
+<li>
+<p><strong>Retrying on 4xx Client Errors (<code>400</code>, <code>401</code>, <code>404</code>):</strong></p>
+</li>
+<li>
+<p>Retrying a 404 Not Found or 401 Unauthorized is pointless—it will never succeed without changing the request. Only retry 429 and 5xx.</p>
+</li>
 </ol>
 <hr />
 <h2 id="practice-exercise">🧪 Practice (Exercise)</h2>
