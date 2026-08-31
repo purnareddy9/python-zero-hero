@@ -19,8 +19,10 @@ theme:
         name: Switch to light mode
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
+    - navigation.top
     - content.code.copy
     - content.code.annotate
 
@@ -46,70 +48,75 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Roadmap: ROADMAP.md
-  - 00. Shell vs Python vs Ansible: 00-shell-vs-python-vs-ansible/lesson.md
-  - 01. Python Basics:
-      - 01. Variables & Types: 01-python-basics/01-variables-and-data-types/lesson.md
-      - 02. Strings & Formatting: 01-python-basics/02-strings-and-formatting/lesson.md
-      - 03. Numbers & Math: 01-python-basics/03-numbers-and-math/lesson.md
-      - 04. Conditionals (If/Else): 01-python-basics/04-conditionals-if-else/lesson.md
-      - 05. Lists & Tuples: 01-python-basics/05-lists-and-tuples/lesson.md
-      - 06. Dictionaries & Sets: 01-python-basics/06-dictionaries-and-sets/lesson.md
-      - 07. Loops (For/While): 01-python-basics/07-loops-for-while/lesson.md
-      - 08. Functions & Scope: 01-python-basics/08-functions-and-scope/lesson.md
-      - 09. Modules & Virtualenvs: 01-python-basics/09-modules-and-virtualenvs/lesson.md
-  - 02. Python for Linux:
-      - 01. Sys & OS Modules: 02-python-for-linux/01-sys-and-os-modules/lesson.md
-      - 02. Subprocess: 02-python-for-linux/02-subprocess-running-commands/lesson.md
-      - 03. Process Management (psutil): 02-python-for-linux/03-process-management-psutil/lesson.md
-      - 04. Environment Variables & Secrets: 02-python-for-linux/04-environment-variables-secrets/lesson.md
-      - 05. Signals & Exit Codes: 02-python-for-linux/05-signals-and-exit-codes/lesson.md
-  - 03. Files, JSON & YAML:
-      - 01. Reading & Writing Files: 03-files-json-yaml/01-reading-writing-files/lesson.md
-      - 02. Parsing Large Logs: 03-files-json-yaml/02-parsing-large-logs/lesson.md
-      - 03. JSON Processing: 03-files-json-yaml/03-json-processing/lesson.md
-      - 04. YAML & Configs: 03-files-json-yaml/04-yaml-and-config-parsing/lesson.md
-      - 05. CSV & Reports: 03-files-json-yaml/05-csv-and-reports/lesson.md
-  - 04. APIs & Networking:
-      - 01. Requests & REST APIs: 04-apis-and-networking/01-requests-and-rest-apis/lesson.md
-      - 02. Auth & Headers: 04-apis-and-networking/02-authentication-tokens-headers/lesson.md
-      - 03. Retries & Timeouts: 04-apis-and-networking/03-handling-retries-and-timeouts/lesson.md
-      - 04. Sockets & Port Checks: 04-apis-and-networking/04-socket-and-port-checking/lesson.md
-  - 05. Automation Tooling:
-      - 01. CLI with Argparse: 05-automation/01-cli-tools-with-argparse/lesson.md
-      - 02. Scheduled Tasks: 05-automation/02-cron-and-scheduled-tasks/lesson.md
-      - 03. Logging & Alerts: 05-automation/03-logging-and-monitoring-alerts/lesson.md
-      - 04. Regex for DevOps: 05-automation/04-regex-for-devops-log-parsing/lesson.md
-  - 06. Docker:
-      - 01. Docker SDK Basics: 06-docker/01-docker-sdk-basics/lesson.md
-      - 02. Inspecting Containers: 06-docker/02-inspecting-containers-and-images/lesson.md
-      - 03. Cleanup Scripts: 06-docker/03-cleanup-and-monitoring-scripts/lesson.md
-  - 07. Kubernetes:
-      - 01. Pod Status: 07-kubernetes/01-k8s-client-pod-status/lesson.md
-      - 02. Deployments & Scaling: 07-kubernetes/02-deployments-and-scaling/lesson.md
-      - 03. CrashLoopBackOff Detector: 07-kubernetes/03-crashloopbackoff-detector/lesson.md
-  - 08. AWS Cloud:
-      - 01. EC2 Management: 08-aws-cloud/01-boto3-ec2-management/lesson.md
-      - 02. S3 Backups: 08-aws-cloud/02-s3-backup-automation/lesson.md
-      - 03. Resource & Cost Auditor: 08-aws-cloud/03-cost-and-unused-resource-auditor/lesson.md
-  - 09. CI/CD:
-      - 01. Pipeline Scripting: 09-ci-cd/01-pipeline-scripting-github-actions/lesson.md
-      - 02. Versioning & Tags: 09-ci-cd/02-artifact-versioning-and-tagging/lesson.md
-      - 03. Smoke Test Runner: 09-ci-cd/03-smoke-test-runner/lesson.md
-  - 10. Testing & Debugging:
-      - 01. Debugging Common Errors: 10-testing-debugging/01-debugging-common-errors/lesson.md
-      - 02. Unit Testing with Pytest: 10-testing-debugging/02-unit-testing-with-pytest/lesson.md
-      - 03. Mocking APIs & Subprocesses: 10-testing-debugging/03-mocking-apis-and-subprocesses/lesson.md
-  - 11. Real-World Projects:
-      - 01. Server Health Checker: 11-real-world-projects/01-server-health-checker/lesson.md
-      - 02. Log Analyzer: 11-real-world-projects/02-log-analyzer/lesson.md
-      - 03. Disk Monitor Alert: 11-real-world-projects/03-disk-monitor-alert/lesson.md
-      - 04. API Health Monitor: 11-real-world-projects/04-api-health-monitor/lesson.md
-      - 05. K8s Cluster Auditor: 11-real-world-projects/05-k8s-cluster-auditor/lesson.md
-      - 06. DevOps Toolkit Capstone: 11-real-world-projects/06-devops-automation-toolkit-capstone/lesson.md
-  - 12. Interview Preparation:
-      - 01. Python Fundamentals: 12-interview-preparation/01-python-fundamentals-questions.md
-      - 02. Linux & Subprocess: 12-interview-preparation/02-linux-and-subprocess-questions.md
-      - 03. APIs & Cloud: 12-interview-preparation/03-apis-and-cloud-questions.md
-      - 04. Tool Decisions (Shell vs Python vs Ansible): 12-interview-preparation/04-shell-vs-python-vs-ansible-questions.md
-      - 05. Troubleshooting Scenarios: 12-interview-preparation/05-troubleshooting-scenarios.md
-      - 06. Mock Interview Guide: 12-interview-preparation/06-mock-interview-guide.md
+  - Foundations:
+      - 00. Shell vs Python vs Ansible: 00-shell-vs-python-vs-ansible/lesson.md
+      - 01. Python Basics:
+          - 01. Variables & Types: 01-python-basics/01-variables-and-data-types/lesson.md
+          - 02. Strings & Formatting: 01-python-basics/02-strings-and-formatting/lesson.md
+          - 03. Numbers & Math: 01-python-basics/03-numbers-and-math/lesson.md
+          - 04. Conditionals (If/Else): 01-python-basics/04-conditionals-if-else/lesson.md
+          - 05. Lists & Tuples: 01-python-basics/05-lists-and-tuples/lesson.md
+          - 06. Dictionaries & Sets: 01-python-basics/06-dictionaries-and-sets/lesson.md
+          - 07. Loops (For/While): 01-python-basics/07-loops-for-while/lesson.md
+          - 08. Functions & Scope: 01-python-basics/08-functions-and-scope/lesson.md
+          - 09. Modules & Virtualenvs: 01-python-basics/09-modules-and-virtualenvs/lesson.md
+  - Linux & Automation:
+      - 02. Python for Linux:
+          - 01. Sys & OS Modules: 02-python-for-linux/01-sys-and-os-modules/lesson.md
+          - 02. Subprocess: 02-python-for-linux/02-subprocess-running-commands/lesson.md
+          - 03. Process Management (psutil): 02-python-for-linux/03-process-management-psutil/lesson.md
+          - 04. Environment Variables & Secrets: 02-python-for-linux/04-environment-variables-secrets/lesson.md
+          - 05. Signals & Exit Codes: 02-python-for-linux/05-signals-and-exit-codes/lesson.md
+      - 03. Files, JSON & YAML:
+          - 01. Reading & Writing Files: 03-files-json-yaml/01-reading-writing-files/lesson.md
+          - 02. Parsing Large Logs: 03-files-json-yaml/02-parsing-large-logs/lesson.md
+          - 03. JSON Processing: 03-files-json-yaml/03-json-processing/lesson.md
+          - 04. YAML & Configs: 03-files-json-yaml/04-yaml-and-config-parsing/lesson.md
+          - 05. CSV & Reports: 03-files-json-yaml/05-csv-and-reports/lesson.md
+      - 04. APIs & Networking:
+          - 01. Requests & REST APIs: 04-apis-and-networking/01-requests-and-rest-apis/lesson.md
+          - 02. Auth & Headers: 04-apis-and-networking/02-authentication-tokens-headers/lesson.md
+          - 03. Retries & Timeouts: 04-apis-and-networking/03-handling-retries-and-timeouts/lesson.md
+          - 04. Sockets & Port Checks: 04-apis-and-networking/04-socket-and-port-checking/lesson.md
+      - 05. Automation Tooling:
+          - 01. CLI with Argparse: 05-automation/01-cli-tools-with-argparse/lesson.md
+          - 02. Scheduled Tasks: 05-automation/02-cron-and-scheduled-tasks/lesson.md
+          - 03. Logging & Alerts: 05-automation/03-logging-and-monitoring-alerts/lesson.md
+          - 04. Regex for DevOps: 05-automation/04-regex-for-devops-log-parsing/lesson.md
+  - Containers & Cloud:
+      - 06. Docker:
+          - 01. Docker SDK Basics: 06-docker/01-docker-sdk-basics/lesson.md
+          - 02. Inspecting Containers: 06-docker/02-inspecting-containers-and-images/lesson.md
+          - 03. Cleanup Scripts: 06-docker/03-cleanup-and-monitoring-scripts/lesson.md
+      - 07. Kubernetes:
+          - 01. Pod Status: 07-kubernetes/01-k8s-client-pod-status/lesson.md
+          - 02. Deployments & Scaling: 07-kubernetes/02-deployments-and-scaling/lesson.md
+          - 03. CrashLoopBackOff Detector: 07-kubernetes/03-crashloopbackoff-detector/lesson.md
+      - 08. AWS Cloud:
+          - 01. EC2 Management: 08-aws-cloud/01-boto3-ec2-management/lesson.md
+          - 02. S3 Backups: 08-aws-cloud/02-s3-backup-automation/lesson.md
+          - 03. Resource & Cost Auditor: 08-aws-cloud/03-cost-and-unused-resource-auditor/lesson.md
+  - CI/CD & Reliability:
+      - 09. CI/CD:
+          - 01. Pipeline Scripting: 09-ci-cd/01-pipeline-scripting-github-actions/lesson.md
+          - 02. Versioning & Tags: 09-ci-cd/02-artifact-versioning-and-tagging/lesson.md
+          - 03. Smoke Test Runner: 09-ci-cd/03-smoke-test-runner/lesson.md
+      - 10. Testing & Debugging:
+          - 01. Debugging Common Errors: 10-testing-debugging/01-debugging-common-errors/lesson.md
+          - 02. Unit Testing with Pytest: 10-testing-debugging/02-unit-testing-with-pytest/lesson.md
+          - 03. Mocking APIs & Subprocesses: 10-testing-debugging/03-mocking-apis-and-subprocesses/lesson.md
+  - Projects & Interviews:
+      - 11. Real-World Projects:
+          - 01. Server Health Checker: 11-real-world-projects/01-server-health-checker/lesson.md
+          - 02. Log Analyzer: 11-real-world-projects/02-log-analyzer/lesson.md
+          - 03. Disk Monitor Alert: 11-real-world-projects/03-disk-monitor-alert/lesson.md
+          - 04. API Health Monitor: 11-real-world-projects/04-api-health-monitor/lesson.md
+          - 05. K8s Cluster Auditor: 11-real-world-projects/05-k8s-cluster-auditor/lesson.md
+          - 06. DevOps Toolkit Capstone: 11-real-world-projects/06-devops-automation-toolkit-capstone/lesson.md
+      - 12. Interview Preparation:
+          - 01. Python Fundamentals: 12-interview-preparation/01-python-fundamentals-questions.md
+          - 02. Linux & Subprocess: 12-interview-preparation/02-linux-and-subprocess-questions.md
+          - 03. APIs & Cloud: 12-interview-preparation/03-apis-and-cloud-questions.md
+          - 04. Tool Decisions: 12-interview-preparation/04-shell-vs-python-vs-ansible-questions.md
+          - 05. Troubleshooting Scenarios: 12-interview-preparation/05-troubleshooting-scenarios.md
+          - 06. Mock Interview Guide: 12-interview-preparation/06-mock-interview-guide.md
