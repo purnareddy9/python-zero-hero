@@ -29,6 +29,27 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs-material mkdocs-minify-plugin pymdown-extensions
 
+      - name: Prepare Documentation Structure
+        run: |
+          python -c "
+          import os, shutil
+
+          os.makedirs('docs', exist_ok=True)
+          shutil.copy('README.md', 'docs/index.md')
+          shutil.copy('ROADMAP.md', 'docs/ROADMAP.md')
+
+          modules = [
+              '00-shell-vs-python-vs-ansible', '01-python-basics', '02-python-for-linux',
+              '03-files-json-yaml', '04-apis-and-networking', '05-automation',
+              '06-docker', '07-kubernetes', '08-aws-cloud', '09-ci-cd',
+              '10-testing-debugging', '11-real-world-projects', '12-interview-preparation'
+          ]
+
+          for m in modules:
+              if os.path.exists(m):
+                  shutil.copytree(m, os.path.join('docs', m), dirs_exist_ok=True)
+          "
+
       - name: Deploy MkDocs to GitHub Pages
         run: |
           git config user.name "github-actions[bot]"
