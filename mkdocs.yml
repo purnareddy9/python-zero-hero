@@ -18,10 +18,11 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   features:
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
+    - navigation.top
+    - navigation.path
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -49,7 +50,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Course Roadmap: ROADMAP.md
-  - 00. Shell vs Python vs Ansible: 00-shell-vs-python-vs-ansible/lesson.md
+  - 00. Shell vs Python vs Ansible:
+      - Tool Comparison & Decision Guide: 00-shell-vs-python-vs-ansible/lesson.md
   - 01. Python Basics:
       - 01. Variables & Types: 01-python-basics/01-variables-and-data-types/lesson.md
       - 02. Strings & Formatting: 01-python-basics/02-strings-and-formatting/lesson.md
